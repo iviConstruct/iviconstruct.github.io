@@ -238,3 +238,58 @@ footer {
 .card:hover {
     transform: translateY(-8px);
 }
+body {
+    background: radial-gradient(circle at top, #1a1a2e, #000);
+    color: white;
+    font-family: Arial;
+}
+
+.section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.grid {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: rgba(255,255,255,0.08);
+    padding: 20px;
+    border-radius: 15px;
+    width: 200px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 18px;
+    margin-top: 10px;
+    background: #00c3ff;
+    color: black;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.btn.secondary {
+    background: rgba(255,255,255,0.2);
+    color: white;
+}
+
+.hero {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-box {
+    text-align: center;
+}
