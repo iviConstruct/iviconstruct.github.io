@@ -9,13 +9,14 @@ html {
     font-family: 'Inter', sans-serif;
 }
 
+/* BODY */
 body {
     color: white;
-    background: #0b0f1a;
+    background: radial-gradient(circle at top, #1a1a2e, #000);
     overflow-x: hidden;
 }
 
-/* gradient glow background */
+/* glow background */
 body::before {
     content: "";
     position: fixed;
@@ -54,7 +55,6 @@ body::after {
     backdrop-filter: blur(12px);
 
     z-index: 100;
-
     border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
@@ -71,7 +71,7 @@ body::after {
 
 /* HERO */
 .hero {
-    height: 90vh;
+    height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -79,7 +79,7 @@ body::after {
 
 .hero-box {
     text-align: center;
-    padding: 60px;
+    padding: 50px;
     border-radius: 20px;
 
     background: rgba(255,255,255,0.05);
@@ -88,7 +88,7 @@ body::after {
 }
 
 .hero-box h1 {
-    font-size: 42px;
+    font-size: 38px;
     margin-bottom: 10px;
 }
 
@@ -97,11 +97,12 @@ body::after {
     margin-bottom: 20px;
 }
 
-/* button */
+/* BUTTON */
 .btn {
-    padding: 12px 25px;
+    display: inline-block;
+    padding: 12px 20px;
     background: linear-gradient(90deg, #00c6ff, #0072ff);
-    border-radius: 12px;
+    border-radius: 10px;
     color: white;
     text-decoration: none;
     transition: 0.3s;
@@ -111,30 +112,34 @@ body::after {
     transform: scale(1.05);
 }
 
-/* sections */
+.btn.secondary {
+    background: rgba(255,255,255,0.2);
+}
+
+/* SECTIONS */
 .section {
     text-align: center;
-    padding: 80px 20px;
-    max-width: 800px;
+    padding: 70px 20px;
+    max-width: 900px;
     margin: auto;
 }
 
-/* grid */
+/* GRID */
 .grid {
     display: flex;
-    gap: 20px;
+    gap: 15px;
     justify-content: center;
     flex-wrap: wrap;
 }
 
-/* cards */
+/* CARDS */
 .card {
-    width: 220px;
-    padding: 25px;
+    width: 200px;
+    padding: 20px;
     border-radius: 15px;
 
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(15px);
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
 
     transition: 0.3s;
 }
@@ -143,16 +148,41 @@ body::after {
     transform: translateY(-10px);
 }
 
-/* footer */
+/* FILTERS */
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.filters button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+
+    background: rgba(255,255,255,0.1);
+    color: white;
+
+    transition: 0.3s;
+}
+
+.filters button:hover {
+    background: rgba(255,255,255,0.3);
+}
+
+/* FOOTER */
 footer {
     text-align: center;
     padding: 40px;
-    opacity: 0.5;
+    opacity: 0.6;
 }
 
-/* animation */
+/* ANIMATION */
 .card, .hero-box {
-    animation: fade 1s ease forwards;
+    animation: fade 0.8s ease;
 }
 
 @keyframes fade {
@@ -165,19 +195,8 @@ footer {
         transform: translateY(0);
     }
 }
-.avatar {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    margin-bottom: 15px;
-}
-.card {
-    transition: 0.3s;
-}
 
-.card:hover {
-    transform: translateY(-10px);
-}
+/* MOBILE */
 @media (max-width: 768px) {
 
     .nav {
@@ -187,7 +206,7 @@ footer {
     }
 
     .hero-box {
-        padding: 30px;
+        padding: 25px;
     }
 
     .hero-box h1 {
@@ -202,94 +221,4 @@ footer {
     .card {
         width: 90%;
     }
-}
-.filters {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px;
-    margin-bottom: 20px;
-}
-
-.filters button {
-    padding: 8px 12px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    background: rgba(255,255,255,0.1);
-    color: white;
-    transition: 0.3s;
-    font-size: 13px;
-}
-
-.filters button:hover {
-    background: rgba(255,255,255,0.3);
-}
-
-.card {
-    text-align: center;
-    padding: 20px;
-    border-radius: 15px;
-    background: rgba(255,255,255,0.08);
-    backdrop-filter: blur(10px);
-    transition: 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-8px);
-}
-body {
-    background: radial-gradient(circle at top, #1a1a2e, #000);
-    color: white;
-    font-family: Arial;
-}
-
-.section {
-    padding: 60px 20px;
-    text-align: center;
-}
-
-.grid {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.card {
-    background: rgba(255,255,255,0.08);
-    padding: 20px;
-    border-radius: 15px;
-    width: 200px;
-    transition: 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-10px);
-}
-
-.btn {
-    display: inline-block;
-    padding: 10px 18px;
-    margin-top: 10px;
-    background: #00c3ff;
-    color: black;
-    border-radius: 10px;
-    text-decoration: none;
-}
-
-.btn.secondary {
-    background: rgba(255,255,255,0.2);
-    color: white;
-}
-
-.hero {
-    height: 80vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.hero-box {
-    text-align: center;
 }
