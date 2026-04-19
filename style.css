@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -40,11 +44,18 @@ body::after {
 .nav {
     display: flex;
     justify-content: space-between;
-    padding: 25px 50px;
+    align-items: center;
+    padding: 20px 40px;
+
     position: sticky;
     top: 0;
+
     background: rgba(0,0,0,0.3);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(12px);
+
+    z-index: 100;
+
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 .nav a {
@@ -166,4 +177,29 @@ footer {
 
 .card:hover {
     transform: translateY(-10px);
+}
+@media (max-width: 768px) {
+
+    .nav {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .hero-box {
+        padding: 30px;
+    }
+
+    .hero-box h1 {
+        font-size: 26px;
+    }
+
+    .grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 90%;
+    }
 }
