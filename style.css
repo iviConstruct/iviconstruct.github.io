@@ -1,49 +1,60 @@
 body {
     margin: 0;
-    height: 100vh;
     font-family: Arial, sans-serif;
+    color: white;
 
-    /* fundal animat modern */
-    background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #1e3c72);
+    background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #141e30);
     background-size: 400% 400%;
-    animation: gradient 10s ease infinite;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    animation: bg 12s ease infinite;
 }
 
-@keyframes gradient {
+@keyframes bg {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
 
-.card {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 40px;
+    align-items: center;
+}
 
-    padding: 40px;
-    border-radius: 20px;
-    text-align: center;
-
+.navbar a {
     color: white;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-    width: 320px;
-}
-
-h1 {
-    margin-bottom: 10px;
-}
-
-p {
+    margin-left: 15px;
+    text-decoration: none;
     opacity: 0.8;
-    margin-bottom: 20px;
+}
+
+.navbar a:hover {
+    opacity: 1;
+}
+
+/* HERO */
+.hero {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    text-align: center;
+    padding: 50px;
+    border-radius: 20px;
+
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(20px);
+
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
 }
 
 button {
-    padding: 10px 20px;
+    margin-top: 15px;
+    padding: 12px 25px;
     border: none;
     border-radius: 10px;
     cursor: pointer;
@@ -56,4 +67,11 @@ button {
 button:hover {
     transform: scale(1.05);
     background: #0072ff;
+}
+
+/* ABOUT */
+.about {
+    text-align: center;
+    padding: 60px 20px;
+    opacity: 0.9;
 }
