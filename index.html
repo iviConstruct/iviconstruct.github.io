@@ -91,3 +91,23 @@
 
 </body>
 </html>
+<script>
+function show(category) {
+    let items = document.querySelectorAll('.card');
+
+    items.forEach(item => {
+        if (item.classList.contains(category)) {
+            item.style.display = "block";
+        } else {
+            item.style.display = "none";
+        }
+    });
+}
+
+function showAll() {
+    let items = document.querySelectorAll('.card');
+    items.forEach(item => {
+        item.style.display = "block";
+    });
+}
+</script>
