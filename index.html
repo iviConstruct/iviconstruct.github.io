@@ -3,240 +3,289 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>iviConstruct PRO</title>
+
+<title>iviConstruct PRO | Construcții Profesionale</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
 <style>
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Inter',sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Inter',sans-serif;
 }
 
 body{
-  color:white;
-  background:#000; /* ✅ ЧЁРНЫЙ ФОН */
-  overflow-x:hidden;
+    color:white;
+    background: radial-gradient(circle at top, #0b1220, #000);
+    overflow-x:hidden;
+}
+
+/* glow */
+body::before,
+body::after{
+    content:"";
+    position:fixed;
+    width:500px;
+    height:500px;
+    filter:blur(130px);
+    z-index:-1;
+}
+
+body::before{
+    background:#00c6ff;
+    top:-150px;
+    left:-150px;
+}
+
+body::after{
+    background:#7c3aed;
+    bottom:-150px;
+    right:-150px;
 }
 
 /* NAV */
 .nav{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:20px 40px;
-  position:sticky;
-  top:0;
-  background:rgba(20,20,20,0.9);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid rgba(255,255,255,0.1);
-  z-index:100;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 40px;
+    position:sticky;
+    top:0;
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid rgba(255,255,255,0.1);
+    z-index:100;
 }
 
 .nav a{
-  color:white;
-  text-decoration:none;
-  margin-left:20px;
-  opacity:0.7;
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+    opacity:0.7;
 }
+
 .nav a:hover{opacity:1;}
 
 /* HERO */
 .hero{
-  height:85vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
+    height:85vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
 }
 
 .hero-box{
-  padding:60px;
-  border-radius:20px;
-  background:rgba(255,255,255,0.05);
+    padding:60px;
+    border-radius:20px;
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(25px);
+    box-shadow:0 20px 80px rgba(0,0,0,0.7);
 }
 
-.hero h1{font-size:44px;margin-bottom:10px;}
-.hero p{opacity:0.7;margin-bottom:20px;}
+.hero h1{
+    font-size:44px;
+    margin-bottom:10px;
+}
+
+.hero p{
+    opacity:0.75;
+    margin-bottom:20px;
+}
 
 /* BUTTON */
 .btn{
-  display:inline-block;
-  padding:12px 18px;
-  margin:5px;
-  border-radius:12px;
-  color:white;
-  background:linear-gradient(90deg,#00c6ff,#7c3aed);
-  cursor:pointer;
-  border:none;
+    display:inline-block;
+    padding:12px 18px;
+    margin:5px;
+    border-radius:12px;
+    text-decoration:none;
+    color:white;
+    background:linear-gradient(90deg,#00c6ff,#7c3aed);
+    transition:0.3s;
+    font-weight:600;
 }
 
-.btn:hover{transform:scale(1.05);}
+.btn:hover{
+    transform:scale(1.05);
+}
 
 /* SECTION */
 .section{
-  padding:80px 20px;
-  text-align:center;
+    padding:80px 20px;
+    text-align:center;
+}
+
+.section h2{
+    margin-bottom:10px;
+}
+
+.section p{
+    opacity:0.7;
+    margin-bottom:30px;
 }
 
 /* GRID */
 .grid{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:15px;
-  max-width:1000px;
-  margin:auto;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:15px;
+    max-width:1000px;
+    margin:auto;
 }
 
 .card{
-  width:220px;
-  padding:20px;
-  border-radius:15px;
-  background:rgba(255,255,255,0.06);
+    width:220px;
+    padding:20px;
+    border-radius:15px;
+    background:rgba(255,255,255,0.06);
+    backdrop-filter:blur(10px);
+    transition:0.3s;
 }
 
-/* FORM */
-.form-box{
-  max-width:500px;
-  margin:auto;
-  padding:30px;
-  border-radius:15px;
-  background:rgba(255,255,255,0.06);
-  text-align:left;
-}
-
-input, textarea{
-  width:100%;
-  padding:12px;
-  margin:10px 0;
-  border-radius:10px;
-  border:none;
-}
-
-/* CALCULATOR */
-.calc-box{
-  max-width:400px;
-  margin:20px auto;
-  padding:20px;
-  background:rgba(255,255,255,0.06);
-  border-radius:15px;
+.card:hover{
+    transform:translateY(-10px);
 }
 
 /* CONTACT */
 .contact-box{
-  max-width:500px;
-  margin:auto;
-  padding:30px;
-  border-radius:15px;
-  background:rgba(255,255,255,0.06);
+    max-width:500px;
+    margin:auto;
+    padding:30px;
+    border-radius:15px;
+    background:rgba(255,255,255,0.06);
+    backdrop-filter:blur(10px);
+}
+
+/* SOCIAL */
+.social a{
+    display:block;
+    margin:10px 0;
+    color:white;
+    text-decoration:none;
+    opacity:0.8;
+}
+
+.social a:hover{opacity:1;}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:40px;
+    opacity:0.6;
 }
 
 /* WHATSAPP */
 .whatsapp{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#25D366;
-  padding:14px 16px;
-  border-radius:50px;
-  color:white;
-  text-decoration:none;
-  font-weight:bold;
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#25D366;
+    padding:14px 16px;
+    border-radius:50px;
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    box-shadow:0 10px 30px rgba(0,0,0,0.4);
+}
+
+/* MOBILE */
+@media(max-width:768px){
+    .hero h1{font-size:28px;}
+    .hero-box{padding:30px;}
+    .card{width:90%;}
 }
 </style>
+
 </head>
 
 <body>
 
 <!-- NAV -->
 <div class="nav">
-  <b>iviConstruct PRO ⚡</b>
-  <div>
-    <a href="#services">Servicii</a>
-    <a href="#order">Cerere</a>
-    <a href="#calc">Calculator</a>
-    <a href="#contact">Contact</a>
-  </div>
+    <b>iviConstruct PRO</b>
+    <div>
+        <a href="#services">Servicii</a>
+        <a href="#about">Despre noi</a>
+        <a href="#contact">Contact</a>
+    </div>
 </div>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-box">
-    <h1>Construcții Profesionale</h1>
-    <p>Lucrări rapide și de calitate</p>
-    <a class="btn" href="#order">Trimite cerere</a>
-  </div>
+    <div class="hero-box">
+        <h1>Servicii Profesionale de Construcții</h1>
+        <p>Executăm lucrări complete în construcții și finisaje interioare & exterioare</p>
+
+        <a class="btn" href="#services">Vezi servicii</a>
+        <a class="btn" href="#contact">Solicită ofertă</a>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+    <h2>Despre noi</h2>
+    <p>
+        iviConstruct PRO oferă servicii de construcții și finisaje cu standarde ridicate de calitate,
+        seriozitate și respectarea termenelor. Lucrăm atât pentru proiecte rezidențiale, cât și comerciale.
+    </p>
 </section>
 
 <!-- SERVICES -->
 <section id="services" class="section">
-  <h2>Servicii</h2>
-  <div class="grid">
-    <div class="card">Tencuială</div>
-    <div class="card">Șapă</div>
-    <div class="card">Glet</div>
-    <div class="card">Pavele</div>
-    <div class="card">Fațade</div>
-  </div>
-</section>
+    <h2>Servicii</h2>
+    <p>Oferim soluții complete pentru construcții și renovări</p>
 
-<!-- ORDER -->
-<section id="order" class="section">
-  <h2>Cerere ofertă</h2>
-
-  <div class="form-box">
-    <input id="workType" placeholder="Tip lucrare">
-    <textarea id="address" placeholder="Adresă"></textarea>
-    <button class="btn" onclick="sendWhatsApp()">Trimite pe WhatsApp</button>
-  </div>
-</section>
-
-<!-- CALCULATOR -->
-<section id="calc" class="section">
-  <h2>Calculator preț</h2>
-
-  <div class="calc-box">
-    <input id="mp" type="number" placeholder="Metri pătrați">
-    <button class="btn" onclick="calc()">Calculează</button>
-    <p id="result"></p>
-  </div>
+    <div class="grid">
+        <div class="card">Tencuieli mecanizate</div>
+        <div class="card">Șape și nivelare</div>
+        <div class="card">Gresie & faianță</div>
+        <div class="card">Glet & finisaje</div>
+        <div class="card">Vopsitorii lavabile</div>
+        <div class="card">Compartimentări rigips</div>
+        <div class="card">Montaj parchet</div>
+        <div class="card">Pavaje & amenajări</div>
+        <div class="card">Beton și fundații</div>
+        <div class="card">Fațade complete</div>
+        <div class="card">Garduri & porți</div>
+    </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact" class="section">
-  <h2>Contact</h2>
+    <h2>Contact</h2>
 
-  <div class="contact-box">
-    <p>📞 +40 764 843 411</p>
-    <p>📧 Email</p>
+    <div class="contact-box">
 
-    <a class="btn" href="https://maps.google.com?q=Romania">Google Maps</a>
-  </div>
+        <p style="font-size:18px;margin-bottom:10px;">
+            👤 <b>Burdujan Ion</b>
+        </p>
+
+        <p style="margin-bottom:15px;">
+            📞 
+            <a href="tel:+40764843411" style="color:#00c6ff; text-decoration:none; font-weight:600;">
+                +40 764 843 411
+            </a>
+        </p>
+
+        <div class="social">
+            <a href="mailto:vanyaburduzhan029@gmail.com">📧 Email: contact@iviconstructpro.ro</a>
+            <a href="https://tiktok.com/@wanyushaburduzhan1993">🎵 TikTok</a>
+            <a href="https://www.facebook.com/share/1CS2ZrVYrh/">📘 Facebook</a>
+        </div>
+
+    </div>
 </section>
 
+<footer>
+© 2026 iviConstruct PRO. Toate drepturile rezervate.
+</footer>
+
+<!-- WhatsApp -->
 <a class="whatsapp" href="https://wa.me/40764843411">WhatsApp</a>
-
-<script>
-function sendWhatsApp(){
-  let work = document.getElementById("workType").value;
-  let address = document.getElementById("address").value;
-
-  let msg = `📩 Cerere:%0A🏗 ${work}%0A📍 ${address}`;
-
-  window.open("https://wa.me/40764843411?text=" + msg);
-}
-
-// simple calculator
-function calc(){
-  let mp = document.getElementById("mp").value;
-  let price = mp * 25; // 25€/m2 exemplu
-  document.getElementById("result").innerText =
-    "Preț estimativ: " + price + " €";
-}
-</script>
 
 </body>
 </html>
