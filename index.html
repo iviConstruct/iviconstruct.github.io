@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>iviConstruct PRO | Construcții Profesionale</title>
+<title>ivi Construct | Construcții Profesionale</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
@@ -118,15 +118,6 @@ body::after{
     text-align:center;
 }
 
-.section h2{
-    margin-bottom:10px;
-}
-
-.section p{
-    opacity:0.7;
-    margin-bottom:30px;
-}
-
 /* GRID */
 .grid{
     display:flex;
@@ -150,7 +141,7 @@ body::after{
     transform:translateY(-10px);
 }
 
-/* CONTACT */
+/* CONTACT BOX */
 .contact-box{
     max-width:500px;
     margin:auto;
@@ -160,16 +151,20 @@ body::after{
     backdrop-filter:blur(10px);
 }
 
-/* SOCIAL */
-.social a{
-    display:block;
-    margin:10px 0;
-    color:white;
-    text-decoration:none;
-    opacity:0.8;
+/* FORM */
+input, select, textarea{
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+    border-radius:10px;
+    border:none;
+    outline:none;
 }
 
-.social a:hover{opacity:1;}
+textarea{
+    resize:none;
+    height:80px;
+}
 
 /* FOOTER */
 footer{
@@ -206,7 +201,7 @@ footer{
 
 <!-- NAV -->
 <div class="nav">
-    <b>iviConstruct PRO</b>
+    <b>ivi Construct</b>
     <div>
         <a href="#services">Servicii</a>
         <a href="#about">Despre noi</a>
@@ -218,10 +213,10 @@ footer{
 <section class="hero">
     <div class="hero-box">
         <h1>Servicii Profesionale de Construcții</h1>
-        <p>Executăm lucrări complete în construcții și finisaje interioare & exterioare</p>
+        <p>Finisaje interioare și exterioare la standard înalt</p>
 
-        <a class="btn" href="#services">Vezi servicii</a>
-        <a class="btn" href="#contact">Solicită ofertă</a>
+        <a class="btn" href="#services">Servicii</a>
+        <a class="btn" href="#contact">Contact</a>
     </div>
 </section>
 
@@ -229,34 +224,32 @@ footer{
 <section id="about" class="section">
     <h2>Despre noi</h2>
     <p>
-        iviConstruct PRO oferă servicii de construcții și finisaje cu standarde ridicate de calitate,
-        seriozitate și respectarea termenelor. Lucrăm atât pentru proiecte rezidențiale, cât și comerciale.
+        ivi Construct oferă servicii de construcții și finisaje cu calitate ridicată, seriozitate și execuție profesională.
     </p>
 </section>
 
 <!-- SERVICES -->
 <section id="services" class="section">
     <h2>Servicii</h2>
-    <p>Oferim soluții complete pentru construcții și renovări</p>
 
     <div class="grid">
-        <div class="card">Tencuieli mecanizate</div>
-        <div class="card">Șape și nivelare</div>
+        <div class="card">Tencuială manuală</div>
+        <div class="card">Șape</div>
         <div class="card">Gresie & faianță</div>
-        <div class="card">Glet & finisaje</div>
-        <div class="card">Vopsitorii lavabile</div>
-        <div class="card">Compartimentări rigips</div>
-        <div class="card">Montaj parchet</div>
-        <div class="card">Pavaje & amenajări</div>
-        <div class="card">Beton și fundații</div>
-        <div class="card">Fațade complete</div>
+        <div class="card">Glet</div>
+        <div class="card">Vopsea lavabilă</div>
+        <div class="card">Rigips</div>
+        <div class="card">Parchet</div>
+        <div class="card">Pavaje</div>
+        <div class="card">Beton</div>
+        <div class="card">Fațade</div>
         <div class="card">Garduri & porți</div>
     </div>
 </section>
 
-<!-- CONTACT -->
+<!-- CONTACT + FORM -->
 <section id="contact" class="section">
-    <h2>Contact</h2>
+    <h2>Contactează-ne</h2>
 
     <div class="contact-box">
 
@@ -265,27 +258,45 @@ footer{
         </p>
 
         <p style="margin-bottom:15px;">
-            📞 
-            <a href="tel:+40764843411" style="color:#00c6ff; text-decoration:none; font-weight:600;">
-                +40 764 843 411
-            </a>
+            📞 <b>+40 764 843 411</b>
         </p>
 
-        <div class="social">
-            <a href="mailto:vanyaburduzhan029@gmail.com">📧 Email: contact@iviconstructpro.ro</a>
-            <a href="https://tiktok.com/@wanyushaburduzhan1993">🎵 TikTok</a>
-            <a href="https://www.facebook.com/share/1CS2ZrVYrh/">📘 Facebook</a>
-        </div>
+        <select id="service">
+            <option>Tencuială manuală</option>
+            <option>Șape</option>
+            <option>Gresie & faianță</option>
+            <option>Rigips</option>
+            <option>Pavaje</option>
+            <option>Alt serviciu</option>
+        </select>
+
+        <textarea id="address" placeholder="Adresa lucrării..."></textarea>
+
+        <button class="btn" onclick="sendWhatsApp()">
+            Trimite pe WhatsApp
+        </button>
 
     </div>
 </section>
 
 <footer>
-© 2026 iviConstruct PRO. Toate drepturile rezervate.
+© 2026 ivi Construct. Toate drepturile rezervate.
 </footer>
 
-<!-- WhatsApp -->
 <a class="whatsapp" href="https://wa.me/40764843411">WhatsApp</a>
+
+<script>
+function sendWhatsApp(){
+    let service = document.getElementById("service").value;
+    let address = document.getElementById("address").value;
+
+    let msg = `Salut! Vreau o ofertă.%0AServiciu: ${service}%0AAdresa: ${address}`;
+
+    let url = `https://wa.me/40764843411?text=${msg}`;
+
+    window.open(url, "_blank");
+}
+</script>
 
 </body>
 </html>
