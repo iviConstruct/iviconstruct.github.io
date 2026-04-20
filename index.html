@@ -9,12 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Inter',sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
 
 body{
     color:white;
@@ -23,8 +18,7 @@ body{
 }
 
 /* glow */
-body::before,
-body::after{
+body::before, body::after{
     content:"";
     position:fixed;
     width:500px;
@@ -33,17 +27,8 @@ body::after{
     z-index:-1;
 }
 
-body::before{
-    background:#00c6ff;
-    top:-150px;
-    left:-150px;
-}
-
-body::after{
-    background:#7c3aed;
-    bottom:-150px;
-    right:-150px;
-}
+body::before{background:#00c6ff;top:-150px;left:-150px;}
+body::after{background:#7c3aed;bottom:-150px;right:-150px;}
 
 /* NAV */
 .nav{
@@ -56,7 +41,6 @@ body::after{
     background:rgba(255,255,255,0.05);
     backdrop-filter:blur(15px);
     border-bottom:1px solid rgba(255,255,255,0.1);
-    z-index:100;
 }
 
 .nav a{
@@ -65,7 +49,6 @@ body::after{
     margin-left:20px;
     opacity:0.7;
 }
-
 .nav a:hover{opacity:1;}
 
 /* HERO */
@@ -85,15 +68,8 @@ body::after{
     box-shadow:0 20px 80px rgba(0,0,0,0.7);
 }
 
-.hero h1{
-    font-size:44px;
-    margin-bottom:10px;
-}
-
-.hero p{
-    opacity:0.75;
-    margin-bottom:20px;
-}
+.hero h1{font-size:44px;margin-bottom:10px;}
+.hero p{opacity:0.75;margin-bottom:20px;}
 
 /* BUTTON */
 .btn{
@@ -104,28 +80,11 @@ body::after{
     text-decoration:none;
     color:white;
     background:linear-gradient(90deg,#00c6ff,#7c3aed);
-    transition:0.3s;
-    font-weight:600;
-}
-
-.btn:hover{
-    transform:scale(1.05);
 }
 
 /* SECTION */
-.section{
-    padding:80px 20px;
-    text-align:center;
-}
-
-.section h2{
-    margin-bottom:10px;
-}
-
-.section p{
-    opacity:0.75;
-    margin-bottom:30px;
-}
+.section{padding:80px 20px;text-align:center;}
+.section p{opacity:0.75;margin-bottom:30px;}
 
 /* GRID */
 .grid{
@@ -142,47 +101,29 @@ body::after{
     padding:20px;
     border-radius:15px;
     background:rgba(255,255,255,0.06);
-    backdrop-filter:blur(10px);
-    transition:0.3s;
 }
 
-.card:hover{
-    transform:translateY(-10px);
-}
-
-/* CONTACT BOX */
+/* CONTACT */
 .contact-box{
     max-width:500px;
     margin:auto;
     padding:30px;
     border-radius:15px;
     background:rgba(255,255,255,0.06);
-    backdrop-filter:blur(10px);
 }
 
-/* FORM */
 select, textarea{
     width:100%;
     padding:10px;
     margin-top:10px;
     border-radius:10px;
     border:none;
-    outline:none;
 }
 
-textarea{
-    resize:none;
-    height:80px;
-}
+textarea{height:80px;}
 
-/* FOOTER */
-footer{
-    text-align:center;
-    padding:40px;
-    opacity:0.6;
-}
+footer{text-align:center;padding:40px;opacity:0.6;}
 
-/* WHATSAPP */
 .whatsapp{
     position:fixed;
     bottom:20px;
@@ -192,15 +133,6 @@ footer{
     border-radius:50px;
     color:white;
     text-decoration:none;
-    font-weight:bold;
-    box-shadow:0 10px 30px rgba(0,0,0,0.4);
-}
-
-/* MOBILE */
-@media(max-width:768px){
-    .hero h1{font-size:28px;}
-    .hero-box{padding:30px;}
-    .card{width:90%;}
 }
 </style>
 
@@ -210,19 +142,27 @@ footer{
 
 <!-- NAV -->
 <div class="nav">
-    <b>ivi Construct</b>
+    <div style="display:flex;align-items:center;gap:10px;">
+        <img src="logo.png" style="height:40px;">
+        <b>ivi Construct</b>
+    </div>
+
     <div>
         <a href="#about">Despre noi</a>
         <a href="#services">Servicii</a>
         <a href="#contact">Contact</a>
+
+        <a href="https://tiktok.com/@wanyushaburduzhan1993" target="_blank">TikTok</a>
+        <a href="https://www.facebook.com/share/1CS2ZrVYrh/" target="_blank">Facebook</a>
     </div>
 </div>
 
 <!-- HERO -->
 <section class="hero">
     <div class="hero-box">
+        <img src="logo.png" style="height:100px;margin-bottom:20px;">
         <h1>Renovăm cu precizie</h1>
-        <p>Finisaje interioare și exterioare în București și împrejurimi</p>
+        <p>Finisaje interioare și exterioare în București</p>
 
         <a class="btn" href="#services">Servicii</a>
         <a class="btn" href="#contact">Contact</a>
@@ -232,88 +172,45 @@ footer{
 <!-- ABOUT -->
 <section id="about" class="section">
     <h2>Despre noi</h2>
-    <p>
-        Oferim servicii profesionale de reparații, renovări și finisaje interioare de înaltă calitate pentru apartamente, birouri și locuințe private în București.  
-        Lucrăm cu materiale premium și oferim soluții personalizate pentru fiecare proiect.
-    </p>
+    <p>Renovări complete, finisaje și amenajări interioare de înaltă calitate.</p>
 </section>
 
 <!-- SERVICES -->
 <section id="services" class="section">
-    <h2>Servicii complete</h2>
-    <p>Tot ce ai nevoie într-un singur loc — soluții la cheie</p>
+    <h2>Servicii</h2>
 
     <div class="grid">
         <div class="card">Tencuială manuală</div>
         <div class="card">Șape</div>
         <div class="card">Gresie & faianță</div>
-        <div class="card">Glet & finisaje</div>
-        <div class="card">Vopsea lavabilă</div>
         <div class="card">Rigips</div>
         <div class="card">Parchet</div>
         <div class="card">Pavaje</div>
-        <div class="card">Beton</div>
-        <div class="card">Fațade</div>
-        <div class="card">Garduri & porți</div>
-    </div>
-</section>
-
-<!-- WHY US -->
-<section class="section">
-    <h2>De ce să ne alegeți</h2>
-    <p>Calitate, experiență și seriozitate în fiecare proiect</p>
-
-    <div class="grid">
-        <div class="card">Execuție precisă</div>
-        <div class="card">Materiale premium</div>
-        <div class="card">Termene respectate</div>
-        <div class="card">Preț corect</div>
-        <div class="card">Curățenie pe șantier</div>
-        <div class="card">Consultanță gratuită</div>
-    </div>
-</section>
-
-<!-- PORTFOLIO -->
-<section class="section">
-    <h2>Portofoliu</h2>
-    <p>Lucrările noastre recente</p>
-
-    <div class="grid">
-        <div class="card">Apartamente renovate</div>
-        <div class="card">Băi moderne</div>
-        <div class="card">Case la cheie</div>
-        <div class="card">Finisaje premium</div>
-        <div class="card">Spații comerciale</div>
     </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact" class="section">
-    <h2>Contactează-ne</h2>
+    <h2>Contact</h2>
 
     <div class="contact-box">
-
-        <p style="margin-bottom:10px;"><b>Burdujan Ion</b></p>
-        <p style="margin-bottom:15px;">📞 +40 764 843 411</p>
+        <p><b>Burdujan Ion</b></p>
+        <p>📞 +40 764 843 411</p>
 
         <select id="service">
-            <option>Tencuială manuală</option>
-            <option>Șape</option>
-            <option>Gresie & faianță</option>
+            <option>Tencuială</option>
+            <option>Gresie</option>
             <option>Rigips</option>
-            <option>Pavaje</option>
-            <option>Alt serviciu</option>
         </select>
 
-        <textarea id="address" placeholder="Adresa lucrării..."></textarea>
+        <textarea id="address" placeholder="Adresa..."></textarea>
 
-        <button class="btn" onclick="sendWhatsApp()">Trimite pe WhatsApp</button>
-
+        <button class="btn" onclick="sendWhatsApp()">Trimite</button>
     </div>
 </section>
 
 <footer>
-© 2026 ivi Construct. Toate drepturile rezervate.
+© 2026 ivi Construct
 </footer>
 
 <a class="whatsapp" href="https://wa.me/40764843411">WhatsApp</a>
@@ -323,11 +220,8 @@ function sendWhatsApp(){
     let service = document.getElementById("service").value;
     let address = document.getElementById("address").value;
 
-    let msg = `Salut! Vreau o ofertă.%0AServiciu: ${service}%0AAdresa: ${address}`;
-
-    let url = `https://wa.me/40764843411?text=${msg}`;
-
-    window.open(url, "_blank");
+    let msg = `Salut! Vreau ofertă - ${service} - ${address}`;
+    window.open(`https://wa.me/40764843411?text=${msg}`);
 }
 </script>
 
