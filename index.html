@@ -118,15 +118,6 @@ body::after{
     text-align:center;
 }
 
-.section h2{
-    margin-bottom:10px;
-}
-
-.section p{
-    opacity:0.75;
-    margin-bottom:30px;
-}
-
 /* GRID */
 .grid{
     display:flex;
@@ -160,7 +151,6 @@ body::after{
     backdrop-filter:blur(10px);
 }
 
-/* FORM */
 select, textarea{
     width:100%;
     padding:10px;
@@ -212,7 +202,7 @@ footer{
 <div class="nav">
 
     <div style="display:flex;align-items:center;gap:10px;">
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA..." style="height:42px;">
+        <img src="logo.png" style="height:42px;">
         <b>ivi Construct</b>
     </div>
 
@@ -230,7 +220,7 @@ footer{
 <section class="hero">
     <div class="hero-box">
 
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA..." style="height:120px;margin-bottom:20px;">
+        <img src="logo.png" style="height:120px;margin-bottom:20px;">
 
         <h1>Renovăm cu precizie</h1>
         <p>Finisaje interioare și exterioare în București și împrejurimi</p>
@@ -244,15 +234,13 @@ footer{
 <section id="about" class="section">
     <h2>Despre noi</h2>
     <p>
-        Oferim servicii profesionale de reparații, renovări și finisaje interioare de înaltă calitate pentru apartamente, birouri și locuințe private în București.  
-        Lucrăm cu materiale premium și oferim soluții personalizate pentru fiecare proiect.
+        Oferim servicii profesionale de reparații, renovări și finisaje interioare de înaltă calitate pentru apartamente, birouri și locuințe private în București.
     </p>
 </section>
 
 <!-- SERVICES -->
 <section id="services" class="section">
     <h2>Servicii complete</h2>
-    <p>Tot ce ai nevoie într-un singur loc — soluții la cheie</p>
 
     <div class="grid">
         <div class="card">Tencuială manuală</div>
@@ -275,8 +263,8 @@ footer{
 
     <div class="contact-box">
 
-        <p style="margin-bottom:10px;"><b>Burdujan Ion</b></p>
-        <p style="margin-bottom:15px;">📞 +40 764 843 411</p>
+        <p><b>Burdujan Ion</b></p>
+        <p style="margin-bottom:10px;">📞 +40 764 843 411</p>
 
         <select id="service">
             <option>Tencuială manuală</option>
@@ -295,7 +283,7 @@ footer{
 </section>
 
 <footer>
-© 2026 ivi Construct. Toate drepturile rezervate.
+© 2026 ivi Construct
 </footer>
 
 <a class="whatsapp" href="https://wa.me/40764843411">WhatsApp</a>
@@ -306,6 +294,7 @@ function sendWhatsApp(){
     let address = document.getElementById("address").value;
 
     let msg = `Salut! Vreau o ofertă.%0AServiciu: ${service}%0AAdresa: ${address}`;
+
     let url = `https://wa.me/40764843411?text=${msg}`;
 
     window.open(url, "_blank");
