@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ivi Construct</title>
+<title>Renovări & Construcții</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
@@ -11,7 +11,7 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
 body{
     color:white;
-    background: radial-gradient(circle at top, #0b1220, #000);
+    background: radial-gradient(circle at top,#0b1220,#000);
     overflow-x:hidden;
 }
 
@@ -41,7 +41,7 @@ body::after{background:#7c3aed;bottom:-150px;right:-150px;}
 .nav a:hover{opacity:1;}
 
 .hero{
-    height:80vh;
+    height:90vh;
     display:flex;
     justify-content:center;
     align-items:center;
@@ -49,26 +49,74 @@ body::after{background:#7c3aed;bottom:-150px;right:-150px;}
 }
 
 .hero-box{
-    padding:50px;
+    padding:60px;
     border-radius:20px;
     background:rgba(255,255,255,0.05);
     backdrop-filter:blur(25px);
 }
 
+.hero h1{font-size:46px;line-height:1.2;}
+.hero p{opacity:0.75;margin-top:10px;}
+
 .btn{
     display:inline-block;
+    margin-top:20px;
     padding:12px 18px;
-    margin:6px;
     border-radius:12px;
-    text-decoration:none;
-    color:white;
     background:linear-gradient(90deg,#00c6ff,#7c3aed);
-    cursor:pointer;
+    color:white;
+    text-decoration:none;
 }
 
-.section{
-    padding:70px 20px;
-    text-align:center;
+.section{padding:80px 20px;text-align:center;}
+
+.stats{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+    margin-top:20px;
+}
+
+.stat{
+    padding:20px;
+    border-radius:15px;
+    background:rgba(255,255,255,0.06);
+    min-width:120px;
+}
+
+.services{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:15px;
+    max-width:1000px;
+    margin:auto;
+}
+
+.card{
+    width:240px;
+    padding:20px;
+    border-radius:15px;
+    background:rgba(255,255,255,0.06);
+    text-align:left;
+}
+
+.card h3{margin-bottom:8px;}
+.card p{opacity:0.7;font-size:14px;}
+
+.portfolio{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:10px;
+    max-width:1000px;
+    margin:auto;
+}
+
+.portfolio div{
+    height:140px;
+    border-radius:12px;
+    background:rgba(255,255,255,0.08);
 }
 
 .form-box{
@@ -79,40 +127,52 @@ body::after{background:#7c3aed;bottom:-150px;right:-150px;}
     background:rgba(255,255,255,0.06);
 }
 
-input,select,textarea{
+input,textarea{
     width:100%;
     padding:12px;
     margin:8px 0;
     border-radius:10px;
     border:none;
-    outline:none;
 }
 
-textarea{height:100px;resize:none;}
+textarea{height:120px;resize:none;}
 
-.quick-buttons{
+.send-btn{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    background:linear-gradient(90deg,#00c6ff,#7c3aed);
+    color:white;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.quick{
     display:flex;
     flex-direction:column;
     gap:10px;
     margin-top:15px;
 }
 
-.whatsapp-btn{
+.whatsapp{
     background:#25D366;
     padding:12px;
     border-radius:10px;
     text-decoration:none;
     color:white;
     font-weight:600;
+    text-align:center;
 }
 
-.email-btn{
+.email{
     background:#ff4d4d;
     padding:12px;
     border-radius:10px;
     text-decoration:none;
     color:white;
     font-weight:600;
+    text-align:center;
 }
 
 footer{
@@ -122,75 +182,86 @@ footer{
 }
 </style>
 </head>
-
 <body>
 
 <div class="nav">
-<b>ivi Construct</b>
+<b>Construcții & Renovări</b>
 <div>
-<a href="#order">Comandă</a>
+<a href="#services">Servicii</a>
+<a href="#portfolio">Lucrări</a>
 <a href="#contact">Contact</a>
 </div>
 </div>
 
 <section class="hero">
 <div class="hero-box">
-<h1>ivi Construct</h1>
+<h1>București & Împrejurimi<br>Renovăm cu Precizie</h1>
+<p>Finisaje premium, instalații și renovări complete pentru locuințe și birouri</p>
+<a class="btn" href="#contact">Deviz Gratuit</a>
 </div>
 </section>
 
-<section id="order" class="section">
-<h2>Trimite cererea ta</h2>
+<section class="section">
+<h2>Experiență și rezultate</h2>
+<div class="stats">
+<div class="stat"><b>150+</b><br>Proiecte</div>
+<div class="stat"><b>10+</b><br>Ani experiență</div>
+<div class="stat"><b>98%</b><br>Clienți mulțumiți</div>
+<div class="stat"><b>2 ani</b><br>Garanție</div>
+</div>
+</section>
+
+<section id="services" class="section">
+<h2>Servicii</h2>
+<div class="services">
+<div class="card"><h3>Instalații sanitare</h3><p>Montaj complet băi, baterii, țevi</p></div>
+<div class="card"><h3>Gips-carton</h3><p>Compartimentări și tavane moderne</p></div>
+<div class="card"><h3>Faianță & gresie</h3><p>Finisaje precise și durabile</p></div>
+<div class="card"><h3>Tencuieli & zugrăveli</h3><p>Pereți perfecți și uniformi</p></div>
+<div class="card"><h3>Vopsire airless</h3><p>Finisaj profesional uniform</p></div>
+<div class="card"><h3>Curățenie post-renovare</h3><p>Predare spațiu complet curat</p></div>
+</div>
+</section>
+
+<section id="portfolio" class="section">
+<h2>Lucrări</h2>
+<div class="portfolio">
+<div></div><div></div><div></div><div></div><div></div><div></div>
+</div>
+</section>
+
+<section id="contact" class="section">
+<h2>Contact</h2>
 
 <div class="form-box">
-
 <input id="name" placeholder="Nume">
 <input id="phone" placeholder="Telefon">
+<input id="email" placeholder="Email">
+<textarea id="msg" placeholder="Descrie proiectul"></textarea>
 
-<select id="service">
-<option>Tencuială</option>
-<option>Șapă</option>
-<option>Gresie</option>
-<option>Glet</option>
-<option>Vopsire</option>
-<option>Renovare completă</option>
-</select>
-
-<input id="area" placeholder="Metri pătrați (ex: 120 m²)">
-<textarea id="details" placeholder="Detalii lucrare"></textarea>
-
-<div class="quick-buttons">
-<a id="wa" class="whatsapp-btn" target="_blank">WhatsApp</a>
-<a id="mail" class="email-btn">Email</a>
+<div class="quick">
+<a id="wa" class="whatsapp" target="_blank">WhatsApp</a>
+<a id="mail" class="email">Email</a>
 </div>
-
 </div>
 </section>
 
-<footer>© ivi Construct</footer>
+<footer>© 2026 Renovări & Construcții</footer>
 
 <script>
-function buildMessage(){
-let name=document.getElementById('name').value;
-let phone=document.getElementById('phone').value;
-let service=document.getElementById('service').value;
-let area=document.getElementById('area').value;
-let details=document.getElementById('details').value;
-
-return `Cerere:\nNume: ${name}\nTelefon: ${phone}\nServiciu: ${service}\nSuprafață: ${area}\nDetalii: ${details}`;
+function build(){
+let n=document.getElementById('name').value;
+let p=document.getElementById('phone').value;
+let e=document.getElementById('email').value;
+let m=document.getElementById('msg').value;
+return `Cerere:\nNume: ${n}\nTelefon: ${p}\nEmail: ${e}\nDetalii: ${m}`;
 }
 
-function updateLinks(){
-let msg=buildMessage();
-
-document.getElementById('wa').href=
-`https://wa.me/40764843411?text=`+encodeURIComponent(msg);
-
-document.getElementById('mail').href=
-`mailto:vanyaburduzhan029@gmail.com?subject=Cerere&body=`+encodeURIComponent(msg);
-}
-
-setInterval(updateLinks,500);
+setInterval(()=>{
+let msg=encodeURIComponent(build());
+document.getElementById('wa').href=`https://wa.me/40764843411?text=${msg}`;
+document.getElementById('mail').href=`mailto:email@example.com?subject=Cerere&body=${msg}`;
+},500);
 </script>
 
 </body>
