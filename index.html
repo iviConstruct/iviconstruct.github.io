@@ -118,6 +118,15 @@ body::after{
     text-align:center;
 }
 
+.section h2{
+    margin-bottom:10px;
+}
+
+.section p{
+    opacity:0.75;
+    margin-bottom:30px;
+}
+
 /* GRID */
 .grid{
     display:flex;
@@ -151,6 +160,7 @@ body::after{
     backdrop-filter:blur(10px);
 }
 
+/* FORM */
 select, textarea{
     width:100%;
     padding:10px;
@@ -200,28 +210,17 @@ footer{
 
 <!-- NAV -->
 <div class="nav">
-
-    <div style="display:flex;align-items:center;gap:10px;">
-        <img src="logo.png" style="height:42px;">
-        <b>ivi Construct</b>
-    </div>
-
+    <b>ivi Construct</b>
     <div>
         <a href="#about">Despre noi</a>
         <a href="#services">Servicii</a>
         <a href="#contact">Contact</a>
-
-        <a href="https://tiktok.com/@wanyushaburduzhan1993" target="_blank">TikTok</a>
-        <a href="https://www.facebook.com/share/1CS2ZrVYrh/" target="_blank">Facebook</a>
     </div>
 </div>
 
 <!-- HERO -->
 <section class="hero">
     <div class="hero-box">
-
-        <img src="logo.png" style="height:120px;margin-bottom:20px;">
-
         <h1>Renovăm cu precizie</h1>
         <p>Finisaje interioare și exterioare în București și împrejurimi</p>
 
@@ -234,13 +233,15 @@ footer{
 <section id="about" class="section">
     <h2>Despre noi</h2>
     <p>
-        Oferim servicii profesionale de reparații, renovări și finisaje interioare de înaltă calitate pentru apartamente, birouri și locuințe private în București.
+        Oferim servicii profesionale de reparații, renovări și finisaje interioare de înaltă calitate pentru apartamente, birouri și locuințe private în București.  
+        Lucrăm cu materiale premium și oferim soluții personalizate pentru fiecare proiect.
     </p>
 </section>
 
 <!-- SERVICES -->
 <section id="services" class="section">
     <h2>Servicii complete</h2>
+    <p>Tot ce ai nevoie într-un singur loc — soluții la cheie</p>
 
     <div class="grid">
         <div class="card">Tencuială manuală</div>
@@ -257,14 +258,43 @@ footer{
     </div>
 </section>
 
+<!-- WHY US -->
+<section class="section">
+    <h2>De ce să ne alegeți</h2>
+    <p>Calitate, experiență și seriozitate în fiecare proiect</p>
+
+    <div class="grid">
+        <div class="card">Execuție precisă</div>
+        <div class="card">Materiale premium</div>
+        <div class="card">Termene respectate</div>
+        <div class="card">Preț corect</div>
+        <div class="card">Curățenie pe șantier</div>
+        <div class="card">Consultanță gratuită</div>
+    </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="section">
+    <h2>Portofoliu</h2>
+    <p>Lucrările noastre recente</p>
+
+    <div class="grid">
+        <div class="card">Apartamente renovate</div>
+        <div class="card">Băi moderne</div>
+        <div class="card">Case la cheie</div>
+        <div class="card">Finisaje premium</div>
+        <div class="card">Spații comerciale</div>
+    </div>
+</section>
+
 <!-- CONTACT -->
 <section id="contact" class="section">
     <h2>Contactează-ne</h2>
 
     <div class="contact-box">
 
-        <p><b>Burdujan Ion</b></p>
-        <p style="margin-bottom:10px;">📞 +40 764 843 411</p>
+        <p style="margin-bottom:10px;"><b>Burdujan Ion</b></p>
+        <p style="margin-bottom:15px;">📞 +40 764 843 411</p>
 
         <select id="service">
             <option>Tencuială manuală</option>
@@ -283,7 +313,7 @@ footer{
 </section>
 
 <footer>
-© 2026 ivi Construct
+© 2026 ivi Construct. Toate drepturile rezervate.
 </footer>
 
 <a class="whatsapp" href="https://wa.me/40764843411">WhatsApp</a>
