@@ -237,6 +237,52 @@ textarea:focus-visible {
 
 .hero-ctas .btn { width: 100%; }
 
+.hero-social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+}
+
+.hero-social-label {
+    color: var(--text-dim);
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.hero-social-links {
+    display: inline-flex;
+    gap: 8px;
+}
+
+.hero-social-links a {
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    transition: color 0.2s, border-color 0.2s, background 0.2s, transform 0.2s;
+}
+
+@media (hover: hover) {
+    .hero-social-links a:hover {
+        color: var(--text);
+        border-color: rgba(0, 198, 255, 0.4);
+        background: rgba(0, 198, 255, 0.08);
+        transform: translateY(-2px);
+    }
+}
+
+.hero-social-links svg {
+    width: 16px;
+    height: 16px;
+}
+
 .trust-row {
     display: flex;
     flex-wrap: wrap;
