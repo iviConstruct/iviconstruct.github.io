@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ivi Construct | Construcții Profesionale</title>
+<title>ivi Construct | Construcții & Renovări</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
@@ -118,6 +118,15 @@ body::after{
     text-align:center;
 }
 
+.section h2{
+    margin-bottom:10px;
+}
+
+.section p{
+    opacity:0.75;
+    margin-bottom:30px;
+}
+
 /* GRID */
 .grid{
     display:flex;
@@ -152,7 +161,7 @@ body::after{
 }
 
 /* FORM */
-input, select, textarea{
+select, textarea{
     width:100%;
     padding:10px;
     margin-top:10px;
@@ -203,8 +212,8 @@ footer{
 <div class="nav">
     <b>ivi Construct</b>
     <div>
-        <a href="#services">Servicii</a>
         <a href="#about">Despre noi</a>
+        <a href="#services">Servicii</a>
         <a href="#contact">Contact</a>
     </div>
 </div>
@@ -212,8 +221,8 @@ footer{
 <!-- HERO -->
 <section class="hero">
     <div class="hero-box">
-        <h1>Servicii Profesionale de Construcții</h1>
-        <p>Finisaje interioare și exterioare la standard înalt</p>
+        <h1>Renovăm cu precizie</h1>
+        <p>Finisaje interioare și exterioare în București și împrejurimi</p>
 
         <a class="btn" href="#services">Servicii</a>
         <a class="btn" href="#contact">Contact</a>
@@ -224,19 +233,21 @@ footer{
 <section id="about" class="section">
     <h2>Despre noi</h2>
     <p>
-        ivi Construct oferă servicii de construcții și finisaje cu calitate ridicată, seriozitate și execuție profesională.
+        Oferim servicii profesionale de reparații, renovări și finisaje interioare de înaltă calitate pentru apartamente, birouri și locuințe private în București.  
+        Lucrăm cu materiale premium și oferim soluții personalizate pentru fiecare proiect.
     </p>
 </section>
 
 <!-- SERVICES -->
 <section id="services" class="section">
-    <h2>Servicii</h2>
+    <h2>Servicii complete</h2>
+    <p>Tot ce ai nevoie într-un singur loc — soluții la cheie</p>
 
     <div class="grid">
         <div class="card">Tencuială manuală</div>
         <div class="card">Șape</div>
         <div class="card">Gresie & faianță</div>
-        <div class="card">Glet</div>
+        <div class="card">Glet & finisaje</div>
         <div class="card">Vopsea lavabilă</div>
         <div class="card">Rigips</div>
         <div class="card">Parchet</div>
@@ -247,19 +258,43 @@ footer{
     </div>
 </section>
 
-<!-- CONTACT + FORM -->
+<!-- WHY US -->
+<section class="section">
+    <h2>De ce să ne alegeți</h2>
+    <p>Calitate, experiență și seriozitate în fiecare proiect</p>
+
+    <div class="grid">
+        <div class="card">Execuție precisă</div>
+        <div class="card">Materiale premium</div>
+        <div class="card">Termene respectate</div>
+        <div class="card">Preț corect</div>
+        <div class="card">Curățenie pe șantier</div>
+        <div class="card">Consultanță gratuită</div>
+    </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="section">
+    <h2>Portofoliu</h2>
+    <p>Lucrările noastre recente</p>
+
+    <div class="grid">
+        <div class="card">Apartamente renovate</div>
+        <div class="card">Băi moderne</div>
+        <div class="card">Case la cheie</div>
+        <div class="card">Finisaje premium</div>
+        <div class="card">Spații comerciale</div>
+    </div>
+</section>
+
+<!-- CONTACT -->
 <section id="contact" class="section">
     <h2>Contactează-ne</h2>
 
     <div class="contact-box">
 
-        <p style="font-size:18px;margin-bottom:10px;">
-            👤 <b>Burdujan Ion</b>
-        </p>
-
-        <p style="margin-bottom:15px;">
-            📞 <b>+40 764 843 411</b>
-        </p>
+        <p style="margin-bottom:10px;"><b>Burdujan Ion</b></p>
+        <p style="margin-bottom:15px;">📞 +40 764 843 411</p>
 
         <select id="service">
             <option>Tencuială manuală</option>
@@ -272,9 +307,7 @@ footer{
 
         <textarea id="address" placeholder="Adresa lucrării..."></textarea>
 
-        <button class="btn" onclick="sendWhatsApp()">
-            Trimite pe WhatsApp
-        </button>
+        <button class="btn" onclick="sendWhatsApp()">Trimite pe WhatsApp</button>
 
     </div>
 </section>
