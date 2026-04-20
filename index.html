@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>iviConstruct PRO | Ultra Premium</title>
+
+<title>iviConstruct PRO</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
@@ -17,82 +18,84 @@
 
 body{
     color:white;
-    background:#000;
+    background: radial-gradient(circle at top, #0b1220, #000);
     overflow-x:hidden;
 }
 
-/* premium animated background */
-.bg{
+/* glow */
+body::before,
+body::after{
+    content:"";
     position:fixed;
-    inset:0;
-    z-index:-2;
-    background: radial-gradient(circle at top, #0b1220, #000);
-}
-
-.glow{
-    position:fixed;
-    width:700px;
-    height:700px;
-    filter:blur(160px);
+    width:500px;
+    height:500px;
+    filter:blur(130px);
     z-index:-1;
 }
-.glow.blue{background:#00c6ff; top:-200px; left:-200px;}
-.glow.purple{background:#7c3aed; bottom:-200px; right:-200px;}
+
+body::before{
+    background:#00c6ff;
+    top:-150px;
+    left:-150px;
+}
+
+body::after{
+    background:#7c3aed;
+    bottom:-150px;
+    right:-150px;
+}
 
 /* NAV */
 .nav{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:18px 40px;
+    padding:20px 40px;
     position:sticky;
     top:0;
     background:rgba(255,255,255,0.05);
-    backdrop-filter:blur(20px);
-    border-bottom:1px solid rgba(255,255,255,0.08);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid rgba(255,255,255,0.1);
     z-index:100;
 }
 
-.nav a{color:white;text-decoration:none;margin-left:20px;opacity:0.7;transition:0.3s;}
+.nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+    opacity:0.7;
+}
+
 .nav a:hover{opacity:1;}
 
-/* HERO VIDEO */
+/* HERO */
 .hero{
-    height:95vh;
+    height:85vh;
     display:flex;
     justify-content:center;
     align-items:center;
     text-align:center;
-    position:relative;
-    overflow:hidden;
-}
-
-.hero video{
-    position:absolute;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    opacity:0.25;
 }
 
 .hero-box{
-    position:relative;
-    padding:80px;
-    border-radius:28px;
-    background:rgba(255,255,255,0.06);
+    padding:60px;
+    border-radius:20px;
+    background:rgba(255,255,255,0.05);
     backdrop-filter:blur(25px);
-    box-shadow:0 40px 120px rgba(0,0,0,0.7);
-    animation:fadeUp 1s ease;
+    box-shadow:0 20px 80px rgba(0,0,0,0.7);
 }
 
-@keyframes fadeUp{
-    from{opacity:0; transform:translateY(40px);}
-    to{opacity:1; transform:translateY(0);}
+.hero h1{
+    font-size:44px;
+    margin-bottom:10px;
 }
 
-.hero h1{font-size:56px; margin-bottom:10px;}
-.hero p{opacity:0.75; margin-bottom:25px;}
+.hero p{
+    opacity:0.7;
+    margin-bottom:20px;
+}
 
+/* BUTTON */
 .btn{
     display:inline-block;
     padding:12px 18px;
@@ -103,30 +106,16 @@ body{
     background:linear-gradient(90deg,#00c6ff,#7c3aed);
     transition:0.3s;
 }
-.btn:hover{transform:scale(1.08);}
 
-/* SECTIONS */
+.btn:hover{
+    transform:scale(1.05);
+}
+
+/* SECTION */
 .section{
-    padding:100px 20px;
+    padding:80px 20px;
     text-align:center;
 }
-
-h2{font-size:34px;margin-bottom:25px;}
-
-/* STATS */
-.stats{
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    flex-wrap:wrap;
-}
-.stat{
-    padding:25px;
-    border-radius:16px;
-    background:rgba(255,255,255,0.05);
-    min-width:160px;
-}
-.stat b{font-size:28px;}
 
 /* GRID */
 .grid{
@@ -134,66 +123,21 @@ h2{font-size:34px;margin-bottom:25px;}
     flex-wrap:wrap;
     justify-content:center;
     gap:15px;
-    max-width:1100px;
+    max-width:1000px;
     margin:auto;
 }
 
 .card{
-    width:230px;
-    padding:15px;
-    border-radius:18px;
-    background:rgba(255,255,255,0.06);
-    backdrop-filter:blur(12px);
-    transition:0.4s;
-    cursor:pointer;
-}
-.card:hover{transform:translateY(-12px) scale(1.03);}
-
-.card img{
-    width:100%;
-    height:130px;
-    object-fit:cover;
-    border-radius:12px;
-    margin-bottom:10px;
-}
-
-/* PRICING */
-.pricing{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:20px;
-}
-.price{
-    width:250px;
-    padding:25px;
-    border-radius:18px;
-    background:rgba(255,255,255,0.05);
-}
-.price h3{margin-bottom:10px;}
-.price b{font-size:22px;color:#00c6ff;}
-
-/* TESTIMONIALS */
-.testimonials{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:15px;
-}
-.quote{
-    max-width:280px;
+    width:220px;
     padding:20px;
     border-radius:15px;
-    background:rgba(255,255,255,0.05);
-    font-style:italic;
+    background:rgba(255,255,255,0.06);
+    backdrop-filter:blur(10px);
+    transition:0.3s;
 }
 
-/* MAP */
-.map iframe{
-    width:90%;
-    height:300px;
-    border-radius:15px;
-    border:none;
+.card:hover{
+    transform:translateY(-10px);
 }
 
 /* CONTACT */
@@ -206,8 +150,25 @@ h2{font-size:34px;margin-bottom:25px;}
     backdrop-filter:blur(10px);
 }
 
-footer{text-align:center;padding:40px;opacity:0.6;}
+/* SOCIAL */
+.social a{
+    display:block;
+    margin:10px 0;
+    color:white;
+    text-decoration:none;
+    opacity:0.8;
+}
 
+.social a:hover{opacity:1;}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:40px;
+    opacity:0.6;
+}
+
+/* WHATSAPP */
 .whatsapp{
     position:fixed;
     bottom:20px;
@@ -218,99 +179,91 @@ footer{text-align:center;padding:40px;opacity:0.6;}
     color:white;
     text-decoration:none;
     font-weight:bold;
+    box-shadow:0 10px 30px rgba(0,0,0,0.4);
 }
 
+/* MOBILE */
+@media(max-width:768px){
+    .hero h1{font-size:28px;}
+    .hero-box{padding:30px;}
+    .card{width:90%;}
+}
 </style>
+
 </head>
 
 <body>
 
-<div class="bg"></div>
-<div class="glow blue"></div>
-<div class="glow purple"></div>
-
+<!-- NAV -->
 <div class="nav">
-<b>iviConstruct PRO ⚡</b>
-<div>
-<a href="#services">Servicii</a>
-<a href="#pricing">Prețuri</a>
-<a href="#contact">Contact</a>
-</div>
+    <b>iviConstruct PRO ⚡</b>
+    <div>
+        <a href="#services">Servicii</a>
+        <a href="#contact">Contact</a>
+    </div>
 </div>
 
-<!-- HERO VIDEO -->
+<!-- HERO -->
 <section class="hero">
-<video autoplay muted loop>
-<source src="https://cdn.coverr.co/videos/coverr-building-construction-7610/1080p.mp4">
-</video>
-<div class="hero-box">
-<h1>Construcții Ultra Premium</h1>
-<p>Calitate europeană • Design modern • Execuție perfectă</p>
-<a class="btn" href="#services">Servicii</a>
-<a class="btn" href="#contact">Contact</a>
-</div>
-</section>
+    <div class="hero-box">
+        <h1>Construcții Profesionale</h1>
+        <p>Calitate, seriozitate și lucrări la cheie</p>
 
-<!-- STATS -->
-<section class="section">
-<h2>De ce noi</h2>
-<div class="stats">
-<div class="stat"><b>10+</b><br>ani</div>
-<div class="stat"><b>200+</b><br>proiecte</div>
-<div class="stat"><b>100%</b><br>calitate</div>
-</div>
+        <a class="btn" href="#services">Servicii</a>
+        <a class="btn" href="#contact">Contact</a>
+    </div>
 </section>
 
 <!-- SERVICES -->
 <section id="services" class="section">
-<h2>Servicii</h2>
-<div class="grid">
-<div class="card"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"><p>Tencuială</p></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0"><p>Șapă</p></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1590725140246-20acdee442be"><p>Gresie</p></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e"><p>Glet</p></div>
-</div>
-</section>
+    <h2>Serviciile noastre</h2>
 
-<!-- PRICING -->
-<section id="pricing" class="section">
-<h2>Prețuri orientative</h2>
-<div class="pricing">
-<div class="price"><h3>Basic</h3><b>€10/m²</b></div>
-<div class="price"><h3>Standard</h3><b>€25/m²</b></div>
-<div class="price"><h3>Premium</h3><b>€50/m²</b></div>
-</div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="section">
-<h2>Recenzii</h2>
-<div class="testimonials">
-<div class="quote">„Top calitate!”</div>
-<div class="quote">„Foarte serioși!”</div>
-<div class="quote">„Recomand 100%”</div>
-</div>
-</section>
-
-<!-- MAP -->
-<section class="section">
-<h2>Locație</h2>
-<div class="map">
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!" loading="lazy"></iframe>
-</div>
+    <div class="grid">
+        <div class="card">Tencuială</div>
+        <div class="card">Șapă</div>
+        <div class="card">Gresie și faianță</div>
+        <div class="card">Glet</div>
+        <div class="card">Vopsea lavabilă</div>
+        <div class="card">Rigips</div>
+        <div class="card">Parchet</div>
+        <div class="card">Pavele</div>
+        <div class="card">Beton</div>
+        <div class="card">Fațadă la cheie</div>
+        <div class="card">Porți și garduri</div>
+    </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact" class="section">
-<h2>Contact</h2>
-<div class="contact-box">
-<p><b>Burdujan Ion</b></p>
-<p><a href="tel:+40764843411" style="color:#00c6ff">+40 764 843 411</a></p>
-</div>
+    <h2>Contact</h2>
+
+    <div class="contact-box">
+
+        <p style="font-size:18px;margin-bottom:10px;">
+            👤 <b>Burdujan Ion</b>
+        </p>
+
+        <p style="margin-bottom:15px;">
+            📞 
+            <a href="tel:+40764843411" style="color:#00c6ff; text-decoration:none; font-weight:600;">
+                +40 764 843 411
+            </a>
+        </p>
+
+        <div class="social">
+            <a href="mailto:vanyaburduzhan029@gmail.com">📧 vanyaburduzhan029@gmail.com</a>
+            <a href="https://tiktok.com/@wanyushaburduzhan1993">🎵 TikTok</a>
+            <a href="https://www.facebook.com/share/1CS2ZrVYrh/">📘 Facebook</a>
+        </div>
+
+    </div>
 </section>
 
-<footer>© 2026 iviConstruct Ultra Premium</footer>
+<footer>
+© 2026 iviConstruct PRO
+</footer>
 
+<!-- WhatsApp -->
 <a class="whatsapp" href="https://wa.me/40764843411">WhatsApp</a>
 
 </body>
