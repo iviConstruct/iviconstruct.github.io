@@ -50,71 +50,304 @@
 
 <body>
 
-<header class="nav">
-<a href="#top" class="brand">
-<img src="assets/iviconstruct-logo.png" class="brand-logo" alt="ivi Construct">
-<span class="brand-text">ivi Construct</span>
-</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<!-- (sprite НЕ ТРОГАЮ — он длинный, оставлю дальше в части 2) -->
+</defs></svg>
 
-<nav class="nav-links">
-<a href="#about">Despre noi</a>
-<a href="#services">Servicii</a>
-<a href="#portfolio">Portofoliu</a>
-<a href="#contact">Contact</a>
-</nav>
+<div class="glow-bg" aria-hidden="true">
+    <div class="glow glow-a"></div>
+    <div class="glow glow-b"></div>
+</div>
+
+<a id="top" tabindex="-1"></a>
+
+<header class="nav">
+  <a href="#top" class="brand" aria-label="ivi Construct — acasă">
+    <img src="assets/iviconstruct-logo.png" alt="ivi Construct" class="brand-logo">
+    <span class="brand-text">ivi Construct</span>
+  </a>
+  <nav class="nav-links" aria-label="Principal">
+    <a href="#about">Despre noi</a>
+    <a href="#services">Servicii</a>
+    <a href="#portfolio">Portofoliu</a>
+    <a href="#contact">Contact</a>
+  </nav>
 </header>
 
 <section class="hero">
-<div class="hero-box">
-<img src="IMG_20250603_163127.jpg" class="hero-image" alt="">
-<h1>Renovăm cu precizie</h1>
-<p>Finisaje interioare și exterioare în București.</p>
+    <div class="hero-box">
+        <figure class="hero-media">
+            <img class="hero-image" src="IMG_20250603_163127.jpg" alt="Renovare interioară finalizată de ivi Construct" width="640" height="360">
+        </figure>
+        <h1>Renovăm cu precizie</h1>
+        <p class="hero-lead">Finisaje interioare și exterioare în București și împrejurimi. Peste <strong>500</strong> proiecte finalizate din anul <strong>2020</strong>.</p>
+        <div class="hero-ctas">
+            <a class="btn btn-primary" href="#contact">Cere ofertă gratuită</a>
+            <a class="btn btn-ghost" href="#services">Vezi servicii</a>
+        </div>
+        <div class="hero-social">
+            <span class="hero-social-label">Urmărește-ne pe</span>
+            <nav class="hero-social-links" aria-label="Rețele sociale">
+                <a href="https://www.facebook.com/share/1CS2ZrVYrh/" target="_blank" rel="noopener">
+                    <svg><use href="#i-facebook"/></svg>
+                </a>
+                <a href="https://www.tiktok.com/@wanyushaburduzhan1993" target="_blank" rel="noopener">
+                    <svg><use href="#i-tiktok"/></svg>
+                </a>
+            </nav>
+        </div>
+    </div>
+</section>
 
-<a href="#contact" class="btn btn-primary">Cere ofertă</a>
-<a href="#services" class="btn btn-ghost">Servicii</a>
-</div>
+<section id="about" class="section prose">
+    <div class="section-head">
+        <h2>Despre noi</h2>
+    </div>
+    <p>
+        Oferim servicii profesionale de reparații, renovări și finisaje interioare de înaltă calitate pentru apartamente, birouri și locuințe private în București.
+    </p>
+    <p>
+        Activăm din anul <strong>x-x-x-x</strong> și am livrat peste <strong>x-x-x-x</strong> proiecte.
+    </p>
 </section>
 
 <section id="services" class="section">
-<h2>Servicii</h2>
+    <div class="section-head">
+        <h2>Servicii complete</h2>
+    </div>
+
+    <h3 class="category">Finisaje interior</h3>
+    <div class="grid">
+        <div class="card"><span>Tencuială manuală</span></div>
+        <div class="card"><span>Glet & finisaje</span></div>
+        <div class="card"><span>Vopsea lavabilă</span></div>
+        <div class="card"><span>Rigips</span></div>
+        <div class="card"><span>Gresie & faianță</span></div>
+        <div class="card"><span>Parchet</span></div>
+    </div>
 </section>
 
-<section id="about" class="section">
-<h2>Despre noi</h2>
-<p>Oferim servicii profesionale...</p>
-</section>
+  <h3 class="category">Exterior & amenajări</h3>
+<div class="grid">
+    <div class="card">
+        <span>Fațade</span>
+    </div>
+    <div class="card">
+        <span>Pavaje</span>
+    </div>
+    <div class="card">
+        <span>Garduri & porți</span>
+    </div>
+</div>
 
-<section id="portfolio" class="section">
-<h2>Portofoliu</h2>
-
-<div class="portfolio-grid">
-<img src="assets/portfolio/baie-la-cheie-1.jpg">
-<img src="assets/portfolio/amenajari-interioare.jpg">
-<img src="assets/portfolio/gresie-faianta-1.jpg">
-<img src="assets/portfolio/apartament-renovare.jpg">
+<h3 class="category">Lucrări structurale</h3>
+<div class="grid">
+    <div class="card">
+        <span>Șape</span>
+    </div>
+    <div class="card">
+        <span>Beton</span>
+    </div>
 </div>
 </section>
 
-<section id="contact" class="section">
-<h2>Contact</h2>
+<section class="section">
+    <div class="section-head">
+        <h2>De ce să ne alegi</h2>
+    </div>
 
-<form id="quoteForm">
-<input type="text" placeholder="Nume">
-<input type="tel" placeholder="Telefon">
-<textarea placeholder="Adresă"></textarea>
-<button type="submit">Trimite pe WhatsApp</button>
-</form>
+    <div class="grid">
+        <div class="card"><span>Execuție precisă</span></div>
+        <div class="card"><span>Materiale premium</span></div>
+        <div class="card"><span>Termene respectate</span></div>
+        <div class="card"><span>Preț corect</span></div>
+        <div class="card"><span>Curățenie pe șantier</span></div>
+        <div class="card"><span>Consultanță gratuită</span></div>
+    </div>
 </section>
 
+<section id="portfolio" class="section">
+    <div class="section-head">
+        <h2>Portofoliu</h2>
+    </div>
+
+    <div class="portfolio-grid">
+
+        <figure class="portfolio-item">
+            <img src="assets/portfolio/gresie-faianta-1.jpg" alt="Gresie și faianță">
+            <figcaption>Gresie & faianță</figcaption>
+        </figure>
+
+        <figure class="portfolio-item">
+            <img src="assets/portfolio/baie-la-cheie-1.jpg" alt="Baie la cheie">
+            <figcaption>Baie la cheie</figcaption>
+        </figure>
+
+        <figure class="portfolio-item">
+            <img src="assets/portfolio/amenajari-interioare.jpg" alt="Amenajări interioare">
+            <figcaption>Amenajări interioare</figcaption>
+        </figure>
+
+        <figure class="portfolio-item">
+            <img src="assets/portfolio/apartament-renovare.jpg" alt="Renovare apartament">
+            <figcaption>Renovare apartament</figcaption>
+        </figure>
+
+    </div>
+</section>
+
+<section class="section">
+    <div class="section-head">
+        <h2>Ce spun clienții</h2>
+    </div>
+
+    <div class="grid testimonials">
+        <blockquote class="testimonial">
+            <p>"x-x-x-x..."</p>
+            <cite>— Client</cite>
+        </blockquote>
+
+        <blockquote class="testimonial">
+            <p>"x-x-x-x..."</p>
+            <cite>— Client</cite>
+        </blockquote>
+
+        <blockquote class="testimonial">
+            <p>"x-x-x-x..."</p>
+            <cite>— Client</cite>
+        </blockquote>
+    </div>
+</section>
+
+  <!-- TESTIMONIALS -->
+<section class="section">
+    <div class="section-head">
+        <h2>Ce spun clienții</h2>
+        <p class="subtitle">Peste <strong>x-x-x-x</strong> clienți mulțumiți în București și Ilfov</p>
+    </div>
+
+    <div class="grid testimonials">
+        <blockquote class="testimonial reveal">
+            <span class="stars" aria-label="5 din 5 stele">★★★★★</span>
+            <p>"x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x."</p>
+            <cite>— x-x-x-x, Sector x</cite>
+        </blockquote>
+
+        <blockquote class="testimonial reveal">
+            <span class="stars" aria-label="5 din 5 stele">★★★★★</span>
+            <p>"x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x."</p>
+            <cite>— x-x-x-x, Sector x</cite>
+        </blockquote>
+
+        <blockquote class="testimonial reveal">
+            <span class="stars" aria-label="5 din 5 stele">★★★★★</span>
+            <p>"x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x."</p>
+            <cite>— x-x-x-x, firmă x-x-x-x</cite>
+        </blockquote>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+    <div class="section-head">
+        <h2>Contactează-ne</h2>
+        <p class="subtitle">Răspundem în maxim <strong>2</strong> ore. Consultanță și deviz gratuite.</p>
+    </div>
+
+    <div class="contact-wrap">
+        <aside class="contact-info">
+            <h3>Burdujan Ion</h3>
+
+            <div class="info-block">
+                <span class="label">Telefon</span>
+                <a href="tel:+40764843411">+40 764 843 411</a>
+            </div>
+
+            <div class="info-block">
+                <span class="label">Email</span>
+                <a href="mailto:x@x.x">x@x.x</a>
+            </div>
+
+            <div class="info-block">
+                <span class="label">Zonă acoperită</span>
+                <span>București și Ilfov</span>
+            </div>
+
+            <div class="info-block">
+                <span class="label">Program</span>
+                <span>Luni – Sâmbătă, x-x-x-x</span>
+            </div>
+
+            <div class="info-block">
+                <span class="label">Sediu</span>
+                <span>x-x-x-x, București</span>
+            </div>
+        </aside>
+
+        <form class="contact-form" id="quoteForm" novalidate>
+            <div class="field">
+                <label for="name">Nume</label>
+                <input id="name" name="name" type="text" autocomplete="name" required>
+            </div>
+
+            <div class="field">
+                <label for="phone">Telefon</label>
+                <input id="phone" name="phone" type="tel" autocomplete="tel" required>
+            </div>
+
+            <div class="field">
+                <label for="service">Serviciu dorit</label>
+                <select id="service" name="service">
+                    <option>Tencuială manuală</option>
+                    <option>Șape</option>
+                    <option>Gresie & faianță</option>
+                    <option>Glet & finisaje</option>
+                    <option>Vopsea lavabilă</option>
+                    <option>Rigips</option>
+                    <option>Parchet</option>
+                    <option>Pavaje</option>
+                    <option>Fațade</option>
+                    <option>Garduri & porți</option>
+                    <option>Beton</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label for="address">Adresa lucrării</label>
+                <textarea id="address" name="address" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Trimite pe WhatsApp</button>
+        </form>
+    </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
-<p>© 2026 ivi Construct SRL</p>
+    <nav class="footer-social" aria-label="Rețele sociale">
+        <a href="https://www.facebook.com/share/1CS2ZrVYrh/" target="_blank" rel="noopener">
+            <svg><use href="#i-facebook"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@wanyushaburduzhan1993" target="_blank" rel="noopener">
+            <svg><use href="#i-tiktok"/></svg>
+        </a>
+    </nav>
+
+    <p>© 2026 ivi Construct SRL · București, România</p>
+    <p>Toate drepturile rezervate.</p>
 </footer>
 
-<a class="whatsapp" href="https://wa.me/40764843411"></a>
+<!-- WHATSAPP FLOAT BUTTON -->
+<a class="whatsapp" href="https://wa.me/40764843411" target="_blank" rel="noopener">
+    <svg aria-hidden="true"><use href="#i-whatsapp"/></svg>
+</a>
 
+<!-- LIGHTBOX -->
 <div id="lightbox" class="lightbox">
-<span class="lightbox-close">×</span>
-<img class="lightbox-img">
+    <span class="lightbox-close" id="lightboxClose">×</span>
+    <img id="lightboxImg" class="lightbox-img" src="" alt="">
+    <button class="lightbox-prev" id="lightboxPrev">‹</button>
+    <button class="lightbox-next" id="lightboxNext">›</button>
 </div>
 
 </body>
