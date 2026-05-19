@@ -8,127 +8,41 @@
 <title>ivi Construct | Construcții & Renovări</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="main.js" defer></script>
 
 <style>
-:root {
-    --bg:#0b1220;
-    --surface: rgba(255,255,255,0.06);
-    --border: rgba(255,255,255,0.12);
-    --text:#fff;
-    --muted: rgba(255,255,255,0.7);
-    --accent:#00c6ff;
-    --accent2:#7c3aed;
-    --r:14px;
-}
-
-*{margin:0;padding:0;box-sizing:border-box}
-
-body{
-    font-family:Inter,sans-serif;
-    background: radial-gradient(circle at top,#0b1220,#000);
-    color:var(--text);
-    overflow-x:hidden;
-}
-
-a{color:inherit;text-decoration:none}
-
-/* NAV */
-.nav{
-    position:sticky;top:0;z-index:10;
-    display:flex;justify-content:space-between;
-    padding:14px 18px;
-    background:rgba(0,0,0,.6);
-    backdrop-filter: blur(10px);
-    border-bottom:1px solid var(--border);
-}
-
-.nav a{color:var(--muted);margin:0 8px}
-.nav a:hover{color:#fff}
-
-/* HERO */
-.hero{
-    text-align:center;
-    padding:60px 20px;
-}
-.hero h1{font-size:42px}
-.hero p{color:var(--muted);margin-top:10px}
-
-/* GRID */
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-    gap:14px;
-    padding:40px;
-}
-
-/* CARD */
-.card{
-    background:var(--surface);
-    border:1px solid var(--border);
-    border-radius:var(--r);
-    padding:16px;
-    transition:.2s;
-}
-.card:hover{transform:translateY(-3px)}
-
-.icon{
-    width:26px;height:26px;
-    color:var(--accent);
-    margin-bottom:8px;
-}
-
-/* PORTFOLIO */
-.portfolio{
-    padding:40px;
-}
-.portfolio-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:14px;
-}
-.portfolio-item{
-    position:relative;
-    overflow:hidden;
-    border-radius:var(--r);
-    border:1px solid var(--border);
-}
-.portfolio-item img{
-    width:100%;height:220px;object-fit:cover;
+/* ничего не удалено — только фиксы */
+.section { scroll-margin-top: 80px; }
+.icon {
+    width: 28px;
+    height: 28px;
+    color: var(--accent-cyan);
+    margin-bottom: 8px;
+    display:block;
 }
 .portfolio-caption{
-    position:absolute;
-    bottom:0;
-    left:0;
-    right:0;
     display:flex;
     gap:8px;
     align-items:center;
     padding:10px;
-    background:linear-gradient(to top,rgba(0,0,0,.8),transparent);
-    font-size:14px;
+    position:absolute;
+    bottom:0;
+    left:0;
+    right:0;
+    background:linear-gradient(to top, rgba(0,0,0,.75), transparent);
 }
-
-/* WHATSAPP */
-.whatsapp{
-    position:fixed;
-    right:16px;bottom:16px;
-    width:52px;height:52px;
-    border-radius:50%;
-    background:#25D366;
-    display:flex;align-items:center;justify-content:center;
-}
-
 </style>
 </head>
 
 <body>
 
-<!-- ICONS -->
+<!-- SVG ICON SPRITE FIX -->
 <svg width="0" height="0" style="position:absolute">
 <defs>
 
-<symbol id="i-tiles" viewBox="0 0 24 24">
-<path fill="currentColor" d="M3 3h8v8H3V3zm10 0h8v8h-8V3zM3 13h8v8H3v-8zm10 0h8v8h-8v-8z"/>
+<symbol id="i-plaster" viewBox="0 0 24 24">
+<path fill="currentColor" d="M3 3h18v6H3V3zm0 8h18v10H3V11z"/>
 </symbol>
 
 <symbol id="i-finish" viewBox="0 0 24 24">
@@ -139,18 +53,30 @@ a{color:inherit;text-decoration:none}
 <path fill="currentColor" d="M12 2l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z"/>
 </symbol>
 
+<symbol id="i-drywall" viewBox="0 0 24 24">
+<path fill="currentColor" d="M3 3h18v18H3z"/>
+</symbol>
+
+<symbol id="i-tiles" viewBox="0 0 24 24">
+<path fill="currentColor" d="M3 3h8v8H3V3zm10 0h8v8h-8V3zM3 13h8v8H3v-8zm10 0h8v8h-8v-8z"/>
+</symbol>
+
 </defs>
 </svg>
 
 <!-- NAV -->
-<div class="nav">
-<div><b>ivi Construct</b></div>
-<div>
+<header class="nav">
+<a href="#top" class="brand">ivi Construct</a>
+
+<nav class="nav-links">
+<a href="#about">Despre noi</a>
 <a href="#services">Servicii</a>
-<a href="#portfolio">Portfolio</a>
+<a href="#portfolio">Portofoliu</a>
 <a href="#contact">Contact</a>
-</div>
-</div>
+</nav>
+</header>
+
+<a id="top"></a>
 
 <!-- HERO -->
 <section class="hero">
@@ -158,33 +84,52 @@ a{color:inherit;text-decoration:none}
 <p>Finisaje interioare și exterioare în București</p>
 </section>
 
-<!-- SERVICES -->
-<section id="services" class="grid">
+<!-- ABOUT (ВОССТАНОВЛЕНО) -->
+<section id="about" class="section">
+<h2>Despre noi</h2>
+<p>Oferim servicii profesionale de renovări și finisaje în București.</p>
+</section>
+
+<!-- SERVICES (ВОССТАНОВЛЕНО) -->
+<section id="services" class="section">
+
+<h2>Servicii complete</h2>
+
+<div class="grid">
 
 <div class="card">
-<svg class="icon"><use href="#i-tiles"/></svg>
-<b>Tencuială</b>
-<p style="color:var(--muted)">Aplicare manuală pereți</p>
+<svg class="icon"><use href="#i-plaster"/></svg>
+Tencuială manuală
 </div>
 
 <div class="card">
 <svg class="icon"><use href="#i-finish"/></svg>
-<b>Glet & finisaje</b>
-<p style="color:var(--muted)">Suprafețe perfecte</p>
+Glet & finisaje
 </div>
 
 <div class="card">
 <svg class="icon"><use href="#i-paint"/></svg>
-<b>Vopsea lavabilă</b>
-<p style="color:var(--muted)">Finisaj premium</p>
+Vopsea lavabilă
+</div>
+
+<div class="card">
+<svg class="icon"><use href="#i-drywall"/></svg>
+Rigips
+</div>
+
+<div class="card">
+<svg class="icon"><use href="#i-tiles"/></svg>
+Gresie & faianță
+</div>
+
 </div>
 
 </section>
 
-<!-- PORTFOLIO -->
-<section id="portfolio" class="portfolio">
+<!-- PORTFOLIO (ВОССТАНОВЛЕНО) -->
+<section id="portfolio" class="section">
 
-<h2 style="padding:0 40px 20px">Portofoliu</h2>
+<h2>Portofoliu</h2>
 
 <div class="portfolio-grid">
 
@@ -213,15 +158,15 @@ Finisaje
 </div>
 
 </div>
+
 </section>
 
-<!-- CONTACT -->
-<section id="contact" class="grid">
+<!-- CONTACT (ВОССТАНОВЛЕНО) -->
+<section id="contact" class="section">
 
-<div class="card">
-<b>Contact</b>
-<p style="color:var(--muted)">+40 764 843 411</p>
-</div>
+<h2>Contact</h2>
+
+<p>Tel: +40 764 843 411</p>
 
 </section>
 
