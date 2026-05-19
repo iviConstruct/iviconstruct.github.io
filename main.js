@@ -1,6 +1,7 @@
 (function () {
+
     // =========================
-    // FORM → WhatsApp
+    // FORM → WhatsApp (SAFE)
     // =========================
     var form = document.getElementById('quoteForm');
 
@@ -8,37 +9,40 @@
         form.addEventListener('submit', function (e) {
             e.preventDefault();
 
-            if (!form.checkValidity()) {
-                form.reportValidity();
-                return;
-            }
+            var nameEl = document.getElementById('name') || form.querySelector('input[type="text"]');
+            var phoneEl = document.getElementById('phone') || form.querySelector('input[type="tel"]');
+            var serviceEl = document.getElementById('service') || form.querySelector('select');
+            var addressEl = document.getElementById('address') || form.querySelector('textarea');
 
-            var name = document.getElementById('name').value.trim();
-            var phone = document.getElementById('phone').value.trim();
-            var service = document.getElementById('service').value;
-            var address = document.getElementById('address').value.trim();
+            var name = nameEl ? nameEl.value.trim() : '';
+            var phone = phoneEl ? phoneEl.value.trim() : '';
+            var service = serviceEl ? serviceEl.value : '';
+            var address = addressEl ? addressEl.value.trim() : '';
 
-            var lines = [
-                'Salut! Aș dori o ofertă.',
-                'Nume: ' + name,
-                'Telefon: ' + phone,
-                'Serviciu: ' + service,
+            var msg = encodeURIComponent(
+                'Salut! Aș dori o ofertă.\n' +
+                'Nume: ' + name + '\n' +
+                'Telefon: ' + phone + '\n' +
+                'Serviciu: ' + service + '\n' +
                 'Adresa: ' + address
-            ];
+            );
 
-            var msg = encodeURIComponent(lines.join('\n'));
-            window.open('https://wa.me/40764843411?text=' + msg, '_blank', 'noopener');
+            window.open(
+                'https://wa.me/40764843411?text=' + msg,
+                '_blank',
+                'noopener'
+            );
         });
     }
 
     // =========================
-    // REVEAL ANIMATION
+    // REVEAL ANIMATION (SAFE)
     // =========================
     if ('IntersectionObserver' in window) {
         var items = document.querySelectorAll('.reveal');
 
         var io = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry, i) {
+            entries.forEach(function (entry) {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('is-visible');
                     io.unobserve(entry.target);
@@ -52,79 +56,72 @@
     }
 
     // =========================
-    // PORTFOLIO GALLERIES
+    // LIGHTBOX (FIXED + SAFE)
     // =========================
-    const galleries = {
-        baie: [
-            "assets/portfolio/baie-la-cheie-1.jpg",
-            "assets/portfolio/baie-la-cheie-2.jpg",
-            "assets/portfolio/baie-la-cheie-3.jpg"
-        ],
-        amenajari: [
-            "assets/portfolio/amenajari-interioare.jpg"
-        ],
-        gresie: [
-            "assets/portfolio/gresie-faianta-1.jpg"
-        ],
-        renovare: [
-            "assets/portfolio/apartament-renovare.jpg"
-        ]
-    };
+    var lightbox = document.getElementById("lightbox");
+    var lightboxImg =
+        document.getElementById("lightboxImg") ||
+        document.querySelector(".lightbox-img");
 
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightboxImg");
-    const closeBtn = document.getElementById("lightboxClose");
-    const prevBtn = document.getElementById("lightboxPrev");
-    const nextBtn = document.getElementById("lightboxNext");
+    var closeBtn =
+        document.getElementById("lightboxClose") ||
+        document.querySelector(".lightbox-close");
 
-    let currentGallery = [];
-    let currentIndex = 0;
+    var prevBtn =
+        document.getElementById("lightboxPrev") ||
+        document.querySelector(".lightbox-prev");
 
-    function openImage(index = 0) {
+    var nextBtn =
+        document.getElementById("lightboxNext") ||
+        document.querySelector(".lightbox-next");
+
+    var images = Array.from(document.querySelectorAll(".portfolio-grid img"));
+
+    var currentIndex = 0;
+
+    function openImage(index) {
+        if (!lightbox || !lightboxImg) return;
+
         currentIndex = index;
-        lightboxImg.src = currentGallery[currentIndex];
+        lightboxImg.src = images[currentIndex].src;
         lightbox.classList.add("active");
     }
 
     function closeLightbox() {
+        if (!lightbox) return;
         lightbox.classList.remove("active");
     }
 
     function next() {
-        currentIndex = (currentIndex + 1) % currentGallery.length;
+        if (!images.length) return;
+        currentIndex = (currentIndex + 1) % images.length;
         openImage(currentIndex);
     }
 
     function prev() {
-        currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+        if (!images.length) return;
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
         openImage(currentIndex);
     }
 
-    // click pe categorii
-    document.querySelectorAll(".portfolio-open").forEach((item) => {
-        item.addEventListener("click", () => {
-            const key = item.dataset.gallery;
-            currentGallery = galleries[key] || [];
-
-            if (!currentGallery.length) return;
-
-            openImage(0);
+    images.forEach(function (img, i) {
+        img.addEventListener("click", function () {
+            openImage(i);
         });
     });
 
-    // controls
     if (closeBtn) closeBtn.addEventListener("click", closeLightbox);
     if (nextBtn) nextBtn.addEventListener("click", next);
     if (prevBtn) prevBtn.addEventListener("click", prev);
 
     if (lightbox) {
-        lightbox.addEventListener("click", (e) => {
+        lightbox.addEventListener("click", function (e) {
             if (e.target === lightbox) closeLightbox();
         });
     }
 
-    document.addEventListener("keydown", (e) => {
-        if (!lightbox.classList.contains("active")) return;
+    document.addEventListener("keydown", function (e) {
+        if (!lightbox || !lightbox.classList.contains("active")) return;
 
         if (e.key === "Escape") closeLightbox();
         if (e.key === "ArrowRight") next();
