@@ -365,3 +365,54 @@ footer {
     color: var(--accent-cyan);
     margin-bottom: 8px;
 }
+
+.section {
+    position: relative;
+    z-index: 2;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+}
+
+.portfolio-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+section {
+    scroll-margin-top: 80px;
+}
+
+.section {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+}
+
+.icon {
+    width: 28px;
+    height: 28px;
+    color: var(--accent-cyan);
+    margin-bottom: 8px;
+    display: block;
+}
+
+.glow-bg {
+    z-index: 0;
+}
+
+.section {
+    position: relative;
+    z-index: 2;
+}
+
+.nav {
+    z-index: 1000;
+}
