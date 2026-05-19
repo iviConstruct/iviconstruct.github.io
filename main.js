@@ -1,4 +1,5 @@
 (function () {
+
     // =========================
     // FORM → WhatsApp
     // =========================
@@ -18,15 +19,14 @@
             var service = document.getElementById('service').value;
             var address = document.getElementById('address').value.trim();
 
-            var lines = [
-                'Salut! Aș dori o ofertă.',
-                'Nume: ' + name,
-                'Telefon: ' + phone,
-                'Serviciu: ' + service,
+            var msg = encodeURIComponent(
+                'Salut! Aș dori o ofertă.\n' +
+                'Nume: ' + name + '\n' +
+                'Telefon: ' + phone + '\n' +
+                'Serviciu: ' + service + '\n' +
                 'Adresa: ' + address
-            ];
+            );
 
-            var msg = encodeURIComponent(lines.join('\n'));
             window.open('https://wa.me/40764843411?text=' + msg, '_blank', 'noopener');
         });
     }
@@ -38,7 +38,7 @@
         var items = document.querySelectorAll('.reveal');
 
         var io = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry, i) {
+            entries.forEach(function (entry) {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('is-visible');
                     io.unobserve(entry.target);
@@ -49,10 +49,14 @@
         items.forEach(function (el) {
             io.observe(el);
         });
+    } else {
+        document.querySelectorAll('.reveal').forEach(function (el) {
+            el.classList.add('is-visible');
+        });
     }
 
     // =========================
-    // PORTFOLIO GALLERIES
+    // PORTFOLIO GALLERIES (FIXED)
     // =========================
     const galleries = {
         baie: [
@@ -80,10 +84,20 @@
     let currentGallery = [];
     let currentIndex = 0;
 
-    function openImage(index = 0) {
+    function showImage(index) {
+        if (!currentGallery.length) return;
+
         currentIndex = index;
+
         lightboxImg.src = currentGallery[currentIndex];
         lightbox.classList.add("active");
+    }
+
+    function openGallery(key) {
+        currentGallery = galleries[key] || [];
+        if (!currentGallery.length) return;
+
+        showImage(0);
     }
 
     function closeLightbox() {
@@ -92,23 +106,18 @@
 
     function next() {
         currentIndex = (currentIndex + 1) % currentGallery.length;
-        openImage(currentIndex);
+        showImage(currentIndex);
     }
 
     function prev() {
         currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
-        openImage(currentIndex);
+        showImage(currentIndex);
     }
 
-    // click pe categorii
+    // CLICK pe categorii
     document.querySelectorAll(".portfolio-open").forEach((item) => {
         item.addEventListener("click", () => {
-            const key = item.dataset.gallery;
-            currentGallery = galleries[key] || [];
-
-            if (!currentGallery.length) return;
-
-            openImage(0);
+            openGallery(item.dataset.gallery);
         });
     });
 
