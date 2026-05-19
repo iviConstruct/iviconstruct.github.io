@@ -1,9 +1,8 @@
 (function () {
-
     // =========================
     // FORM → WhatsApp
     // =========================
-    const form = document.getElementById('quoteForm');
+    var form = document.getElementById('quoteForm');
 
     if (form) {
         form.addEventListener('submit', function (e) {
@@ -14,24 +13,21 @@
                 return;
             }
 
-            const name = document.getElementById('name')?.value.trim() || '';
-            const phone = document.getElementById('phone')?.value.trim() || '';
-            const service = document.getElementById('service')?.value || '';
-            const address = document.getElementById('address')?.value.trim() || '';
+            var name = document.getElementById('name').value.trim();
+            var phone = document.getElementById('phone').value.trim();
+            var service = document.getElementById('service').value;
+            var address = document.getElementById('address').value.trim();
 
-            const msg = encodeURIComponent(
-                'Salut! Aș dori o ofertă.\n' +
-                'Nume: ' + name + '\n' +
-                'Telefon: ' + phone + '\n' +
-                'Serviciu: ' + service + '\n' +
+            var lines = [
+                'Salut! Aș dori o ofertă.',
+                'Nume: ' + name,
+                'Telefon: ' + phone,
+                'Serviciu: ' + service,
                 'Adresa: ' + address
-            );
+            ];
 
-            window.open(
-                'https://wa.me/40764843411?text=' + msg,
-                '_blank',
-                'noopener'
-            );
+            var msg = encodeURIComponent(lines.join('\n'));
+            window.open('https://wa.me/40764843411?text=' + msg, '_blank', 'noopener');
         });
     }
 
@@ -39,10 +35,10 @@
     // REVEAL ANIMATION
     // =========================
     if ('IntersectionObserver' in window) {
-        const items = document.querySelectorAll('.reveal');
+        var items = document.querySelectorAll('.reveal');
 
-        const io = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry, i) {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('is-visible');
                     io.unobserve(entry.target);
@@ -50,18 +46,14 @@
             });
         }, { threshold: 0.12 });
 
-        items.forEach((el) => io.observe(el));
-
-    } else {
-        document.querySelectorAll('.reveal').forEach((el) => {
-            el.classList.add('is-visible');
+        items.forEach(function (el) {
+            io.observe(el);
         });
     }
 
     // =========================
-    // PORTFOLIO LIGHTBOX
+    // PORTFOLIO GALLERIES
     // =========================
-
     const galleries = {
         baie: [
             "assets/portfolio/baie-la-cheie-1.jpg",
@@ -80,80 +72,63 @@
     };
 
     const lightbox = document.getElementById("lightbox");
-    const img = document.getElementById("lightboxImg");
+    const lightboxImg = document.getElementById("lightboxImg");
+    const closeBtn = document.getElementById("lightboxClose");
+    const prevBtn = document.getElementById("lightboxPrev");
+    const nextBtn = document.getElementById("lightboxNext");
 
-    if (!lightbox || !img) return;
+    let currentGallery = [];
+    let currentIndex = 0;
 
-    let current = [];
-    let index = 0;
-
-    function show() {
-        if (!current.length) return;
-        img.src = current[index];
+    function openImage(index = 0) {
+        currentIndex = index;
+        lightboxImg.src = currentGallery[currentIndex];
+        lightbox.classList.add("active");
     }
 
-    document.querySelectorAll(".portfolio-open").forEach(el => {
-        el.addEventListener("click", () => {
-            const key = el.dataset.gallery;
+    function closeLightbox() {
+        lightbox.classList.remove("active");
+    }
 
-            if (!galleries[key]) return;
+    function next() {
+        currentIndex = (currentIndex + 1) % currentGallery.length;
+        openImage(currentIndex);
+    }
 
-            current = galleries[key];
-            index = 0;
+    function prev() {
+        currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+        openImage(currentIndex);
+    }
 
-            show();
-            lightbox.classList.add("active");
+    // click pe categorii
+    document.querySelectorAll(".portfolio-open").forEach((item) => {
+        item.addEventListener("click", () => {
+            const key = item.dataset.gallery;
+            currentGallery = galleries[key] || [];
+
+            if (!currentGallery.length) return;
+
+            openImage(0);
         });
     });
 
-    const nextBtn = document.getElementById("lightboxNext");
-    const prevBtn = document.getElementById("lightboxPrev");
-    const closeBtn = document.getElementById("lightboxClose");
+    // controls
+    if (closeBtn) closeBtn.addEventListener("click", closeLightbox);
+    if (nextBtn) nextBtn.addEventListener("click", next);
+    if (prevBtn) prevBtn.addEventListener("click", prev);
 
-    if (nextBtn) {
-        nextBtn.onclick = () => {
-            if (!current.length) return;
-            index = (index + 1) % current.length;
-            show();
-        };
+    if (lightbox) {
+        lightbox.addEventListener("click", (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
     }
 
-    if (prevBtn) {
-        prevBtn.onclick = () => {
-            if (!current.length) return;
-            index = (index - 1 + current.length) % current.length;
-            show();
-        };
-    }
-
-    if (closeBtn) {
-        closeBtn.onclick = () => {
-            lightbox.classList.remove("active");
-        };
-    }
-
-    lightbox.addEventListener("click", e => {
-        if (e.target === lightbox) {
-            lightbox.classList.remove("active");
-        }
-    });
-
-    document.addEventListener("keydown", e => {
+    document.addEventListener("keydown", (e) => {
         if (!lightbox.classList.contains("active")) return;
 
-        if (e.key === "Escape") {
-            lightbox.classList.remove("active");
-        }
-
-        if (e.key === "ArrowRight") {
-            index = (index + 1) % current.length;
-            show();
-        }
-
-        if (e.key === "ArrowLeft") {
-            index = (index - 1 + current.length) % current.length;
-            show();
-        }
+        if (e.key === "Escape") closeLightbox();
+        if (e.key === "ArrowRight") next();
+        if (e.key === "ArrowLeft") prev();
     });
 
 })();
