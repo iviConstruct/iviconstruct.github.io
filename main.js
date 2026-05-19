@@ -55,89 +55,92 @@
         });
     }
 
-    // =========================
-    // PORTFOLIO GALLERIES (FIXED)
-    // =========================
-    const galleries = {
-        baie: [
-            "assets/portfolio/baie-la-cheie-1.jpg",
-            "assets/portfolio/baie-la-cheie-2.jpg",
-            "assets/portfolio/baie-la-cheie-3.jpg"
-        ],
-        amenajari: [
-            "assets/portfolio/amenajari-interioare.jpg"
-        ],
-        gresie: [
-            "assets/portfolio/gresie-faianta-1.jpg"
-        ],
-        renovare: [
-            "assets/portfolio/apartament-renovare.jpg"
-        ]
-    };
+   // =========================
+// PORTFOLIO GALLERIES (FIXED)
+// =========================
 
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightboxImg");
-    const closeBtn = document.getElementById("lightboxClose");
-    const prevBtn = document.getElementById("lightboxPrev");
-    const nextBtn = document.getElementById("lightboxNext");
+const galleries = {
+    baie: [
+        "assets/portfolio/baie-la-cheie-1.jpg",
+        "assets/portfolio/baie-la-cheie-2.jpg",
+        "assets/portfolio/baie-la-cheie-3.jpg"
+    ],
+    amenajari: [
+        "assets/portfolio/amenajari-interioare.jpg"
+    ],
+    gresie: [
+        "assets/portfolio/gresie-faianta-1.jpg"
+    ],
+    renovare: [
+        "assets/portfolio/apartament-renovare.jpg"
+    ]
+};
 
-    let currentGallery = [];
-    let currentIndex = 0;
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightboxImg");
+const closeBtn = document.getElementById("lightboxClose");
+const prevBtn = document.getElementById("lightboxPrev");
+const nextBtn = document.getElementById("lightboxNext");
 
-    function showImage(index) {
-        if (!currentGallery.length) return;
+let currentGallery = [];
+let currentIndex = 0;
 
-        currentIndex = index;
+function renderImage() {
+    if (!currentGallery.length) return;
+    lightboxImg.src = currentGallery[currentIndex];
+}
 
-        lightboxImg.src = currentGallery[currentIndex];
-        lightbox.classList.add("active");
-    }
+function openLightbox(index = 0) {
+    currentIndex = index;
+    renderImage();
+    lightbox.classList.add("active");
+}
 
-    function openGallery(key) {
+function closeLightbox() {
+    lightbox.classList.remove("active");
+}
+
+function next() {
+    if (!currentGallery.length) return;
+    currentIndex = (currentIndex + 1) % currentGallery.length;
+    renderImage();
+}
+
+function prev() {
+    if (!currentGallery.length) return;
+    currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+    renderImage();
+}
+
+// click pe categorii
+document.querySelectorAll(".portfolio-open").forEach((item) => {
+    item.addEventListener("click", () => {
+        const key = item.dataset.gallery;
         currentGallery = galleries[key] || [];
+
         if (!currentGallery.length) return;
 
-        showImage(0);
-    }
-
-    function closeLightbox() {
-        lightbox.classList.remove("active");
-    }
-
-    function next() {
-        currentIndex = (currentIndex + 1) % currentGallery.length;
-        showImage(currentIndex);
-    }
-
-    function prev() {
-        currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
-        showImage(currentIndex);
-    }
-
-    // CLICK pe categorii
-    document.querySelectorAll(".portfolio-open").forEach((item) => {
-        item.addEventListener("click", () => {
-            openGallery(item.dataset.gallery);
-        });
+        openLightbox(0);
     });
+});
 
-    // controls
-    if (closeBtn) closeBtn.addEventListener("click", closeLightbox);
-    if (nextBtn) nextBtn.addEventListener("click", next);
-    if (prevBtn) prevBtn.addEventListener("click", prev);
+// controls
+if (closeBtn) closeBtn.addEventListener("click", closeLightbox);
+if (nextBtn) nextBtn.addEventListener("click", next);
+if (prevBtn) prevBtn.addEventListener("click", prev);
 
-    if (lightbox) {
-        lightbox.addEventListener("click", (e) => {
-            if (e.target === lightbox) closeLightbox();
-        });
-    }
-
-    document.addEventListener("keydown", (e) => {
-        if (!lightbox.classList.contains("active")) return;
-
-        if (e.key === "Escape") closeLightbox();
-        if (e.key === "ArrowRight") next();
-        if (e.key === "ArrowLeft") prev();
+// click outside
+if (lightbox) {
+    lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) closeLightbox();
     });
+}
 
-})();
+// keyboard
+document.addEventListener("keydown", (e) => {
+    if (!lightbox.classList.contains("active")) return;
+
+    if (e.key === "Escape") closeLightbox();
+    if (e.key === "ArrowRight") next();
+    if (e.key === "ArrowLeft") prev();
+});
