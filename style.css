@@ -312,3 +312,28 @@ footer {
     align-items: center;
     justify-content: center;
 }
+
+/* FIX DESKTOP LAYOUT */
+@media (min-width: 768px) {
+
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .portfolio-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+@media (min-width: 1024px) {
+
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .portfolio-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
