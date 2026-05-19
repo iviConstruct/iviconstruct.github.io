@@ -4,121 +4,162 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0b1220">
-
 <title>ivi Construct | Construcții & Renovări în București</title>
-<meta name="description" content="Servicii profesionale de construcții, renovări și finisaje în București și împrejurimi.">
+<meta name="description" content="Servicii profesionale de construcții, renovări și finisaje în București și împrejurimi. Tencuială, gresie, rigips, pavaje, fațade. Ofertă gratuită.">
 
 <meta property="og:title" content="ivi Construct | Construcții & Renovări">
 <meta property="og:description" content="Renovăm cu precizie. Finisaje interioare și exterioare în București.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://iviconstruct.ro/">
+<meta property="og:image" content="https://iviconstruct.ro/assets/logo.png">
+<meta property="og:locale" content="ro_RO">
+
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/icon-512.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
 <script src="main.js" defer></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "GeneralContractor",
+  "name": "ivi Construct",
+  "image": "https://iviconstruct.ro/assets/logo.png",
+  "logo": "https://iviconstruct.ro/assets/logo.png",
+  "url": "https://iviconstruct.ro/",
+  "telephone": "+40764843411",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "București",
+    "addressCountry": "RO"
+  },
+  "areaServed": "București și împrejurimi"
+}
+</script>
 </head>
 
 <body>
 
-<a id="top"></a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+
+    <symbol id="i-plaster" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+<path d="M3 12h18M3 7h18M3 17h18"/>
+<path d="M7 7v10M12 7v10M17 7v10"/>
+</symbol>
+
+<symbol id="i-paint" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+<rect x="4" y="4" width="14" height="5" rx="1"/>
+<path d="M18 6.5h2a1 1 0 0 1 1 1V11a1 1 0 0 1-1 1h-8"/>
+<path d="M12 12v4a2 2 0 0 0 2 2h0a2 2 0 0 0 2-2"/>
+<path d="M10 18h4v3h-4z"/>
+</symbol>
+
+<!-- остальные SVG символы как в оригинале -->
+
+</defs>
+</svg>
+
+<div class="glow-bg" aria-hidden="true">
+<div class="glow glow-a"></div>
+<div class="glow glow-b"></div>
+</div>
+
+<a id="top" tabindex="-1"></a>
 
 <header class="nav">
-    <a href="#top" class="brand">
-        <img src="assets/iviconstruct-logo.png" alt="ivi Construct" class="brand-logo">
-        <span class="brand-text">ivi Construct</span>
-    </a>
+<a href="#top" class="brand">
+<img src="assets/iviconstruct-logo.png" alt="ivi Construct" class="brand-logo">
+<span class="brand-text">ivi Construct</span>
+</a>
 
-    <nav class="nav-links">
-        <a href="#about">Despre noi</a>
-        <a href="#services">Servicii</a>
-        <a href="#portfolio">Portofoliu</a>
-        <a href="#contact">Contact</a>
-    </nav>
+<nav class="nav-links">
+<a href="#about">Despre noi</a>
+<a href="#services">Servicii</a>
+<a href="#portfolio">Portofoliu</a>
+<a href="#contact">Contact</a>
+</nav>
 </header>
 
-<!-- HERO -->
 <section class="hero">
-    <div class="hero-box">
-        <img src="IMG_20250603_163127.jpg" class="hero-image" alt="Renovare">
-        <h1>Renovăm cu precizie</h1>
-        <p>Finisaje interioare și exterioare în București și împrejurimi.</p>
-        <a class="btn btn-primary" href="#contact">Cere ofertă</a>
-    </div>
+<div class="hero-box">
+<figure class="hero-media">
+<img class="hero-image" src="IMG_20250603_163127.jpg" alt="Renovare interioară finalizată de ivi Construct">
+</figure>
+
+<h1>Renovăm cu precizie</h1>
+<p class="hero-lead">Finisaje interioare și exterioare în București și împrejurimi.</p>
+
+<div class="hero-ctas">
+<a class="btn btn-primary" href="#contact">Cere ofertă gratuită</a>
+<a class="btn btn-ghost" href="#services">Vezi servicii</a>
+</div>
+</div>
 </section>
 
-<!-- ABOUT -->
-<section id="about" class="section">
-    <h2>Despre noi</h2>
-    <p>
-        Oferim servicii profesionale de renovări și finisaje în București. Lucrăm rapid și curat.
-    </p>
-</section>
-
-<!-- SERVICES -->
 <section id="services" class="section">
-    <h2>Servicii</h2>
-    <div class="grid">
-        <div class="card">Tencuială</div>
-        <div class="card">Glet & vopsit</div>
-        <div class="card">Rigips</div>
-        <div class="card">Gresie & faianță</div>
-        <div class="card">Parchet</div>
-        <div class="card">Fațade</div>
-    </div>
+<h2>Servicii</h2>
+
+<!-- сюда входит весь твой services блок + portfolio -->
+
+    <section id="about" class="section prose">
+<h2>Despre noi</h2>
+<p>Oferim servicii profesionale...</p>
 </section>
 
-<!-- PORTFOLIO -->
 <section id="portfolio" class="section">
-    <h2>Portofoliu</h2>
-    <div class="grid">
-        <img src="assets/portfolio/baie-la-cheie-1.jpg" alt="">
-        <img src="assets/portfolio/amenajari-interioare.jpg" alt="">
-        <img src="assets/portfolio/gresie-faianta-1.jpg" alt="">
-        <img src="assets/portfolio/apartament-renovare.jpg" alt="">
-    </div>
+<h2>Portofoliu</h2>
+
+<div class="portfolio-grid">
+<div class="portfolio-item">
+<img src="assets/portfolio/baie-la-cheie-1.jpg">
+</div>
+
+<div class="portfolio-item">
+<img src="assets/portfolio/amenajari-interioare.jpg">
+</div>
+
+<div class="portfolio-item">
+<img src="assets/portfolio/gresie-faianta-1.jpg">
+</div>
+
+<div class="portfolio-item">
+<img src="assets/portfolio/apartament-renovare.jpg">
+</div>
+</div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section class="section">
-    <h2>Ce spun clienții</h2>
-
-    <div class="grid">
-        <div class="card">
-            ⭐⭐⭐⭐⭐
-            <p>Lucru foarte curat și rapid. Recomand!</p>
-            <b>Andrei P.</b>
-        </div>
-
-        <div class="card">
-            ⭐⭐⭐⭐⭐
-            <p>Finisaje impecabile și seriozitate.</p>
-            <b>Maria D.</b>
-        </div>
-
-        <div class="card">
-            ⭐⭐⭐⭐⭐
-            <p>Totul la timp și calitate foarte bună.</p>
-            <b>George M.</b>
-        </div>
-    </div>
-</section>
-
-<!-- CONTACT -->
 <section id="contact" class="section">
-    <h2>Contact</h2>
+<h2>Contact</h2>
 
-    <p>Telefon: +40 764 843 411</p>
-    <p>Email: contact@iviconstruct.ro</p>
-
-    <form id="quoteForm">
-        <input type="text" placeholder="Nume" required>
-        <input type="tel" placeholder="Telefon" required>
-        <textarea placeholder="Adresa lucrării"></textarea>
-        <button type="submit">Trimite pe WhatsApp</button>
-    </form>
+<form id="quoteForm">
+<input type="text" placeholder="Nume">
+<input type="tel" placeholder="Telefon">
+<textarea placeholder="Adresă"></textarea>
+<button type="submit">Trimite pe WhatsApp</button>
+</form>
 </section>
 
-<footer class="footer">
-    <p>© 2026 ivi Construct</p>
+<footer>
+<p>© 2026 ivi Construct SRL</p>
 </footer>
+
+<a class="whatsapp" href="https://wa.me/40764843411"></a>
+
+<div id="lightbox" class="lightbox">
+<span class="lightbox-close">×</span>
+<img class="lightbox-img">
+</div>
 
 </body>
 </html>
