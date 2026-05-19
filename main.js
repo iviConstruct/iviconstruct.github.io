@@ -55,8 +55,8 @@
         });
     }
 
-   // =========================
-// PORTFOLIO GALLERIES (FIXED)
+  // =========================
+// PORTFOLIO LIGHTBOX (CLEAN FIX)
 // =========================
 
 const galleries = {
@@ -77,70 +77,61 @@ const galleries = {
 };
 
 const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.getElementById("lightboxImg");
-const closeBtn = document.getElementById("lightboxClose");
-const prevBtn = document.getElementById("lightboxPrev");
-const nextBtn = document.getElementById("lightboxNext");
+const img = document.getElementById("lightboxImg");
 
-let currentGallery = [];
-let currentIndex = 0;
+let current = [];
+let index = 0;
 
-function renderImage() {
-    if (!currentGallery.length) return;
-    lightboxImg.src = currentGallery[currentIndex];
+function show() {
+    img.src = current[index];
 }
 
-function openLightbox(index = 0) {
-    currentIndex = index;
-    renderImage();
-    lightbox.classList.add("active");
-}
+document.querySelectorAll(".portfolio-open").forEach(el => {
+    el.addEventListener("click", () => {
+        const key = el.dataset.gallery;
 
-function closeLightbox() {
-    lightbox.classList.remove("active");
-}
+        if (!galleries[key]) return;
 
-function next() {
-    if (!currentGallery.length) return;
-    currentIndex = (currentIndex + 1) % currentGallery.length;
-    renderImage();
-}
+        current = galleries[key];
+        index = 0;
 
-function prev() {
-    if (!currentGallery.length) return;
-    currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
-    renderImage();
-}
-
-// click pe categorii
-document.querySelectorAll(".portfolio-open").forEach((item) => {
-    item.addEventListener("click", () => {
-        const key = item.dataset.gallery;
-        currentGallery = galleries[key] || [];
-
-        if (!currentGallery.length) return;
-
-        openLightbox(0);
+        show();
+        lightbox.classList.add("active");
     });
 });
 
-// controls
-if (closeBtn) closeBtn.addEventListener("click", closeLightbox);
-if (nextBtn) nextBtn.addEventListener("click", next);
-if (prevBtn) prevBtn.addEventListener("click", prev);
+document.getElementById("lightboxNext").onclick = () => {
+    if (!current.length) return;
+    index = (index + 1) % current.length;
+    show();
+};
 
-// click outside
-if (lightbox) {
-    lightbox.addEventListener("click", (e) => {
-        if (e.target === lightbox) closeLightbox();
-    });
-}
+document.getElementById("lightboxPrev").onclick = () => {
+    if (!current.length) return;
+    index = (index - 1 + current.length) % current.length;
+    show();
+};
 
-// keyboard
-document.addEventListener("keydown", (e) => {
+document.getElementById("lightboxClose").onclick = () => {
+    lightbox.classList.remove("active");
+};
+
+lightbox.addEventListener("click", e => {
+    if (e.target === lightbox) lightbox.classList.remove("active");
+});
+
+document.addEventListener("keydown", e => {
     if (!lightbox.classList.contains("active")) return;
 
-    if (e.key === "Escape") closeLightbox();
-    if (e.key === "ArrowRight") next();
-    if (e.key === "ArrowLeft") prev();
+    if (e.key === "Escape") lightbox.classList.remove("active");
+
+    if (e.key === "ArrowRight") {
+        index = (index + 1) % current.length;
+        show();
+    }
+
+    if (e.key === "ArrowLeft") {
+        index = (index - 1 + current.length) % current.length;
+        show();
+    }
 });
