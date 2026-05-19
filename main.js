@@ -1,42 +1,7 @@
 (function () {
 
     // =========================
-    // FORM → WhatsApp (SAFE)
-    // =========================
-    var form = document.getElementById('quoteForm');
-
-    if (form) {
-        form.addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            var nameEl = document.getElementById('name') || form.querySelector('input[type="text"]');
-            var phoneEl = document.getElementById('phone') || form.querySelector('input[type="tel"]');
-            var serviceEl = document.getElementById('service') || form.querySelector('select');
-            var addressEl = document.getElementById('address') || form.querySelector('textarea');
-
-            var name = nameEl ? nameEl.value.trim() : '';
-            var phone = phoneEl ? phoneEl.value.trim() : '';
-            var service = serviceEl ? serviceEl.value : '';
-            var address = addressEl ? addressEl.value.trim() : '';
-
-            var msg = encodeURIComponent(
-                'Salut! Aș dori o ofertă.\n' +
-                'Nume: ' + name + '\n' +
-                'Telefon: ' + phone + '\n' +
-                'Serviciu: ' + service + '\n' +
-                'Adresa: ' + address
-            );
-
-            window.open(
-                'https://wa.me/40764843411?text=' + msg,
-                '_blank',
-                'noopener'
-            );
-        });
-    }
-
-    // =========================
-    // REVEAL ANIMATION (SAFE)
+    // REVEAL
     // =========================
     if ('IntersectionObserver' in window) {
         var items = document.querySelectorAll('.reveal');
@@ -56,57 +21,60 @@
     }
 
     // =========================
-    // LIGHTBOX (FIXED + SAFE)
+    // PORTFOLIO LIGHTBOX (FIXED)
     // =========================
-    var lightbox = document.getElementById("lightbox");
-    var lightboxImg =
-        document.getElementById("lightboxImg") ||
-        document.querySelector(".lightbox-img");
 
-    var closeBtn =
-        document.getElementById("lightboxClose") ||
-        document.querySelector(".lightbox-close");
+    const galleries = {
+        baie: [
+            "assets/portfolio/baie-la-cheie-1.jpg",
+            "assets/portfolio/baie-la-cheie-2.jpg",
+            "assets/portfolio/baie-la-cheie-3.jpg"
+        ],
+        amenajari: [
+            "assets/portfolio/amenajari-interioare.jpg"
+        ],
+        gresie: [
+            "assets/portfolio/gresie-faianta-1.jpg"
+        ],
+        renovare: [
+            "assets/portfolio/apartament-renovare.jpg"
+        ]
+    };
 
-    var prevBtn =
-        document.getElementById("lightboxPrev") ||
-        document.querySelector(".lightbox-prev");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightboxImg");
+    const closeBtn = document.getElementById("lightboxClose");
+    const prevBtn = document.getElementById("lightboxPrev");
+    const nextBtn = document.getElementById("lightboxNext");
 
-    var nextBtn =
-        document.getElementById("lightboxNext") ||
-        document.querySelector(".lightbox-next");
-
-    var images = Array.from(document.querySelectorAll(".portfolio-grid img"));
-
-    var currentIndex = 0;
+    let currentGallery = [];
+    let currentIndex = 0;
 
     function openImage(index) {
-        if (!lightbox || !lightboxImg) return;
-
         currentIndex = index;
-        lightboxImg.src = images[currentIndex].src;
+        lightboxImg.src = currentGallery[currentIndex];
         lightbox.classList.add("active");
     }
 
     function closeLightbox() {
-        if (!lightbox) return;
         lightbox.classList.remove("active");
     }
 
     function next() {
-        if (!images.length) return;
-        currentIndex = (currentIndex + 1) % images.length;
+        currentIndex = (currentIndex + 1) % currentGallery.length;
         openImage(currentIndex);
     }
 
     function prev() {
-        if (!images.length) return;
-        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
         openImage(currentIndex);
     }
 
-    images.forEach(function (img, i) {
-        img.addEventListener("click", function () {
-            openImage(i);
+    document.querySelectorAll(".portfolio-img").forEach((img) => {
+        img.addEventListener("click", () => {
+            const key = img.dataset.gallery;
+            currentGallery = galleries[key] || [];
+            openImage(0);
         });
     });
 
@@ -115,13 +83,13 @@
     if (prevBtn) prevBtn.addEventListener("click", prev);
 
     if (lightbox) {
-        lightbox.addEventListener("click", function (e) {
+        lightbox.addEventListener("click", (e) => {
             if (e.target === lightbox) closeLightbox();
         });
     }
 
-    document.addEventListener("keydown", function (e) {
-        if (!lightbox || !lightbox.classList.contains("active")) return;
+    document.addEventListener("keydown", (e) => {
+        if (!lightbox.classList.contains("active")) return;
 
         if (e.key === "Escape") closeLightbox();
         if (e.key === "ArrowRight") next();
