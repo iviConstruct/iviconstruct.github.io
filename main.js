@@ -92,3 +92,63 @@ document.addEventListener("keydown", (e) => {
     if (e.key === "ArrowRight") showNext();
     if (e.key === "ArrowLeft") showPrev();
 });
+
+const galleries = {
+    baie: [
+        "assets/portfolio/baie-la-cheie-1.jpg",
+        "assets/portfolio/baie-la-cheie-2.jpg",
+        "assets/portfolio/baie-la-cheie-3.jpg"
+    ],
+    amenajari: [
+        "assets/portfolio/amenajari-interioare.jpg"
+    ],
+    gresie: [
+        "assets/portfolio/gresie-faianta-1.jpg"
+    ],
+    renovare: [
+        "assets/portfolio/apartament-renovare.jpg"
+    ]
+};
+
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightboxImg");
+const closeBtn = document.getElementById("lightboxClose");
+const nextBtn = document.getElementById("lightboxNext");
+const prevBtn = document.getElementById("lightboxPrev");
+
+let currentGallery = [];
+let currentIndex = 0;
+
+document.querySelectorAll(".portfolio-open").forEach(item => {
+    item.addEventListener("click", () => {
+        const key = item.dataset.gallery;
+        currentGallery = galleries[key] || [];
+        currentIndex = 0;
+        openImage();
+    });
+});
+
+function openImage() {
+    lightbox.style.display = "flex";
+    lightboxImg.src = currentGallery[currentIndex];
+}
+
+closeBtn.addEventListener("click", () => {
+    lightbox.style.display = "none";
+});
+
+nextBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % currentGallery.length;
+    openImage();
+});
+
+prevBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+    openImage();
+});
+
+lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) {
+        lightbox.style.display = "none";
+    }
+});
