@@ -156,14 +156,6 @@ main:focus { outline: none; }
     object-fit: contain;
 }
 
-/* Logo already contains brand name — hide redundant text on mobile */
-.brand-text {
-    display: none;
-    font-weight: 800;
-    letter-spacing: -0.01em;
-    font-size: 17px;
-}
-
 .nav-links {
     display: flex;
     align-items: center;
@@ -836,6 +828,14 @@ footer {
     html { scroll-behavior: auto; }
 }
 
+/* small phones: keep logo + all 4 nav links in one row */
+@media (max-width: 399px) {
+    .nav { padding-left: calc(12px + var(--safe-l)); padding-right: calc(12px + var(--safe-r)); }
+    .brand-logo { height: 36px; }
+    .nav-links { gap: 0; }
+    .nav-links a { padding: 10px 6px; font-size: 13px; }
+}
+
 /* ================= SCALE UP ================= */
 
 /* small tablets / large phones */
@@ -856,7 +856,6 @@ footer {
     :root { --nav-h: 72px; }
     .nav { padding: 14px 24px; gap: 16px; }
     .brand-logo { height: 48px; }
-    .brand-text { display: inline; font-size: 18px; }
     .nav-links { gap: 8px; overflow: visible; }
     .nav-links a { font-size: 15px; padding: 10px 12px; }
 
