@@ -21,9 +21,8 @@
 <link rel="icon" type="image/png" sizes="512x512" href="assets/icon-512.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/inter-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
 
 <link rel="stylesheet" href="style.css">
 <script src="main.js" defer></script>
@@ -43,7 +42,14 @@
     "addressLocality": "București",
     "addressCountry": "RO"
   },
-  "areaServed": "București și împrejurimi"
+  "areaServed": [
+    { "@type": "City", "name": "București" },
+    { "@type": "AdministrativeArea", "name": "Ilfov" }
+  ],
+  "sameAs": [
+    "https://www.facebook.com/share/1CS2ZrVYrh/",
+    "https://www.tiktok.com/@wanyushaburduzhan1993"
+  ]
 }
 </script>
 </head>
@@ -80,6 +86,7 @@
 </div>
 
 <a id="top" tabindex="-1"></a>
+<a class="skip-link" href="#main">Sari la conținut</a>
 
 <!-- NAV -->
 <header class="nav">
@@ -95,11 +102,17 @@
     </nav>
 </header>
 
+<main id="main" tabindex="-1">
+
 <!-- HERO -->
 <section class="hero">
     <div class="hero-box">
         <figure class="hero-media">
-            <img class="hero-image" src="assets/hero.jpeg" alt="Renovare interioară finalizată de ivi Construct" width="640" height="360">
+            <picture>
+                <source type="image/avif" srcset="assets/hero-768.avif 768w, assets/hero-1536.avif 1536w" sizes="(min-width: 800px) 680px, calc(100vw - 80px)">
+                <source type="image/webp" srcset="assets/hero-768.webp 768w, assets/hero-1536.webp 1536w" sizes="(min-width: 800px) 680px, calc(100vw - 80px)">
+                <img class="hero-image" src="assets/hero-1536.jpeg" srcset="assets/hero-768.jpeg 768w, assets/hero-1536.jpeg 1536w" sizes="(min-width: 800px) 680px, calc(100vw - 80px)" alt="Renovare interioară finalizată de ivi Construct" width="1536" height="1024" fetchpriority="high">
+            </picture>
         </figure>
         <h1>Renovăm cu precizie</h1>
         <p class="hero-lead">Finisaje interioare și exterioare în București și împrejurimi. Peste <strong>500</strong> proiecte finalizate din anul <strong>2020</strong>.</p>
@@ -145,32 +158,32 @@
     <div class="grid">
         <div class="card reveal">
             <svg class="icon" aria-hidden="true"><use href="#i-plaster"/></svg>
-            <span class="card-title">Tencuială manuală</span>
+            <h4 class="card-title">Tencuială manuală</h4>
             <span class="card-desc">Tencuială clasică aplicată manual pentru pereți interiori, cu grosime uniformă.</span>
         </div>
         <div class="card reveal">
             <svg class="icon" aria-hidden="true"><use href="#i-finish"/></svg>
-            <span class="card-title">Glet & finisaje</span>
+            <h4 class="card-title">Glet & finisaje</h4>
             <span class="card-desc">Netezire și pregătire suprafețe pentru un finish impecabil înainte de vopsire.</span>
         </div>
         <div class="card reveal">
             <svg class="icon" aria-hidden="true"><use href="#i-paint"/></svg>
-            <span class="card-title">Vopsea lavabilă</span>
+            <h4 class="card-title">Vopsea lavabilă</h4>
             <span class="card-desc">Aplicare uniformă, vopsele premium, culori personalizate după preferință.</span>
         </div>
         <div class="card reveal">
             <svg class="icon" aria-hidden="true"><use href="#i-drywall"/></svg>
-            <span class="card-title">Rigips</span>
+            <h4 class="card-title">Rigips</h4>
             <span class="card-desc">Pereți despărțitori, tavane false, nișe și soluții decorative din gips-carton.</span>
         </div>
         <div class="card reveal">
             <svg class="icon" aria-hidden="true"><use href="#i-tiles"/></svg>
-            <span class="card-title">Gresie & faianță</span>
+            <h4 class="card-title">Gresie & faianță</h4>
             <span class="card-desc">Montaj precis pentru băi, bucătării și zone umede, cu aliniere perfectă.</span>
         </div>
         <div class="card reveal">
             <svg class="icon" aria-hidden="true"><use href="#i-floor"/></svg>
-            <span class="card-title">Parchet</span>
+            <h4 class="card-title">Parchet</h4>
             <span class="card-desc">Montaj parchet laminat, triplu stratificat sau masiv, cu pregătire suport.</span>
         </div>
     </div>
@@ -179,17 +192,17 @@
     <div class="grid">
         <div class="card reveal">
             <svg class="icon" aria-hidden="true"><use href="#i-facade"/></svg>
-            <span class="card-title">Fațade</span>
+            <h4 class="card-title">Fațade</h4>
             <span class="card-desc">Termoizolație, tencuieli decorative și vopsele rezistente pentru exterior.</span>
         </div>
         <div class="card reveal">
             <svg class="icon" aria-hidden="true"><use href="#i-pavement"/></svg>
-            <span class="card-title">Pavaje</span>
+            <h4 class="card-title">Pavaje</h4>
             <span class="card-desc">Alei, terase și curți pavate cu pantă corectă și compactare profesională.</span>
         </div>
         <div class="card reveal">
             <svg class="icon" aria-hidden="true"><use href="#i-fence"/></svg>
-            <span class="card-title">Garduri & porți</span>
+            <h4 class="card-title">Garduri & porți</h4>
             <span class="card-desc">Construcție garduri din beton, metal sau mixt, cu porți auto și pietonale.</span>
         </div>
     </div>
@@ -198,12 +211,12 @@
     <div class="grid">
         <div class="card reveal">
             <svg class="icon" aria-hidden="true"><use href="#i-screed"/></svg>
-            <span class="card-title">Șape</span>
+            <h4 class="card-title">Șape</h4>
             <span class="card-desc">Șape autonivelante și clasice, pregătite pentru orice tip de pardoseală.</span>
         </div>
         <div class="card reveal">
             <svg class="icon" aria-hidden="true"><use href="#i-concrete"/></svg>
-            <span class="card-title">Beton</span>
+            <h4 class="card-title">Beton</h4>
             <span class="card-desc">Turnare fundații, plăci, trepte și elemente structurale la standarde.</span>
         </div>
     </div>
@@ -219,32 +232,32 @@
     <div class="grid">
         <div class="card reveal">
             <svg class="icon" aria-hidden="true"><use href="#i-target"/></svg>
-            <span class="card-title">Execuție precisă</span>
+            <h3 class="card-title">Execuție precisă</h3>
             <span class="card-desc">Echipe cu experiență, atenție la detalii și finisaje aliniate la milimetru.</span>
         </div>
         <div class="card reveal">
             <svg class="icon" aria-hidden="true"><use href="#i-gem"/></svg>
-            <span class="card-title">Materiale premium</span>
+            <h3 class="card-title">Materiale premium</h3>
             <span class="card-desc">Colaborări cu furnizori de încredere și materiale cu garanție inclusă.</span>
         </div>
         <div class="card reveal">
             <svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>
-            <span class="card-title">Termene respectate</span>
+            <h3 class="card-title">Termene respectate</h3>
             <span class="card-desc">Planificare clară și livrare la data convenită, fără surprize la final.</span>
         </div>
         <div class="card reveal">
             <svg class="icon" aria-hidden="true"><use href="#i-price"/></svg>
-            <span class="card-title">Preț corect</span>
+            <h3 class="card-title">Preț corect</h3>
             <span class="card-desc">Ofertă transparentă, detaliată pe articole — fără costuri ascunse.</span>
         </div>
         <div class="card reveal">
             <svg class="icon" aria-hidden="true"><use href="#i-sparkle"/></svg>
-            <span class="card-title">Curățenie pe șantier</span>
+            <h3 class="card-title">Curățenie pe șantier</h3>
             <span class="card-desc">Protejăm spațiul, strângem zilnic resturile și predăm curat la final.</span>
         </div>
         <div class="card reveal">
             <svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg>
-            <span class="card-title">Consultanță gratuită</span>
+            <h3 class="card-title">Consultanță gratuită</h3>
             <span class="card-desc">Te ajutăm să alegi soluțiile potrivite pentru bugetul și spațiul tău.</span>
         </div>
     </div>
@@ -388,6 +401,8 @@
         </form>
     </div>
 </section>
+
+</main>
 
 <footer>
     <nav class="footer-social" aria-label="Rețele sociale">

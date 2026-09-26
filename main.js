@@ -36,6 +36,23 @@
             });
         }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
         items.forEach(function (el) { io.observe(el); });
+
+        // scroll-spy: mark the nav link of the section in the middle of the viewport
+        var links = document.querySelectorAll('.nav-links a[href^="#"]');
+        var spy = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (!entry.isIntersecting) return;
+                links.forEach(function (a) {
+                    if (entry.target.id && a.getAttribute('href') === '#' + entry.target.id) {
+                        a.setAttribute('aria-current', 'true');
+                    } else {
+                        a.removeAttribute('aria-current');
+                    }
+                });
+            });
+        }, { rootMargin: '-45% 0px -50% 0px' });
+        // observe all sections so hero / unlinked sections clear the active link
+        document.querySelectorAll('main > section').forEach(function (el) { spy.observe(el); });
     } else {
         document.querySelectorAll('.reveal').forEach(function (el) {
             el.classList.add('is-visible');
